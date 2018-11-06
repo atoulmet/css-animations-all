@@ -1,10 +1,13 @@
-$clr-bg-01: #14140f;
-$clr-bg-02: #0b0b09;
-$clr-frame: #BFBAA5;
-$clr-ball: #E5DFC6;
+$cd-bg-01: #FFF3D4;
+$cd-bg-02: #e8e0cc;
+$cd-btn: #69CBD8;
+$cd-border: #539199;
+$cd-btn-active: #E880D7;
+$cd-txt: #FFF3D4;
 
+$border-rad: 105rem;
 $ball-size: 3vw;
-$frame-size: 6vw;
+$frame-size: 20vw;
 
 $anim-dur: 1.25s;
 $cub-bez: cubic-bezier(.88, 0, .10, 1);
@@ -28,49 +31,68 @@ html {
 
 body {
     box-sizing: border-box;
-    background: $clr-bg-01;
+    background: $cd-btn;
     height: 100%;
+    font-family: 'Montserrat', sans-serif;
   }
 
 .container {
-    background: radial-gradient(circle, $clr-bg-01 0%, $clr-bg-02 100%);
+    // background: lighten($cd-btn, 10);
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .animation {
-    margin: 2rem;
+    // margin: 2rem;
     height: $frame-size;
-    border: 2px solid $clr-frame;
+    width: 75%;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
-    &__container {
+    &__box {
+        padding: 50px;
         width: 100%;
-        @include anim(ping-pong);
-    }
-    &__ball {
-        height: $ball-size;
-        width: $ball-size;
-        border-radius: $ball-size * .5;
-        background: $clr-ball;
-        @include anim(ball-offset);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
     }
 }
 
-@keyframes ping-pong {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(100%);
-    }
-}
+.btn {
+    padding: 1rem 3rem;
+    font-size: 2.5rem;
+    color: $cd-txt;
+    display: inline-block;
+    background: linear-gradient(to right top, #e880d7, #e578d3, #e16fcf, #de66ca, #da5dc6);
+    
+    
+    position: relative;
+    border: 2px solid $cd-txt;
+    border-radius: $border-rad;
+    
 
-@keyframes ball-offset {
-    from {
-        transform: translateX(0);
+    cursor: pointer;
+    & span {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
     }
-    to {
-        transform: translateX(-100%);
+    &::before {
+        content: "";
+        border-radius: $border-rad;
+        background: $cd-btn;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: opacity 400ms cubic-bezier(.56, 0, .31, 1);
+    }
+    &:hover::before {
+        opacity: 0;
     }
 }
