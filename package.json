@@ -1,0 +1,11 @@
+{
+  "name": "css-animations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./main.scss:./style.css --watch --style expanded --sourcemap=none"
+  },
+  "author": "",
+  "license": "ISC"
+}

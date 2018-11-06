@@ -1,0 +1,76 @@
+$clr-bg-01: #14140f;
+$clr-bg-02: #0b0b09;
+$clr-frame: #BFBAA5;
+$clr-ball: #E5DFC6;
+
+$ball-size: 3vw;
+$frame-size: 6vw;
+
+$anim-dur: 1.25s;
+$cub-bez: cubic-bezier(.88, 0, .10, 1);
+
+@mixin anim($keys, $dur:$anim-dur) {
+    animation: $keys $dur $cub-bez infinite alternate;
+}
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    background: $clr-bg-01;
+    height: 100%;
+  }
+
+.container {
+    background: radial-gradient(circle, $clr-bg-01 0%, $clr-bg-02 100%);
+    height: 100%;
+}
+
+.animation {
+    margin: 2rem;
+    height: $frame-size;
+    border: 2px solid $clr-frame;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    &__container {
+        width: 100%;
+        @include anim(ping-pong);
+    }
+    &__ball {
+        height: $ball-size;
+        width: $ball-size;
+        border-radius: $ball-size * .5;
+        background: $clr-ball;
+        @include anim(ball-offset);
+    }
+}
+
+@keyframes ping-pong {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes ball-offset {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

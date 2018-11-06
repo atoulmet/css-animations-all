@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  height: 100%; }
+
+body {
+  box-sizing: border-box;
+  background: #14140f;
+  height: 100%; }
+
+.container {
+  background: radial-gradient(circle, #14140f 0%, #0b0b09 100%);
+  height: 100%; }
+
+.animation {
+  margin: 2rem;
+  height: 6vw;
+  border: 2px solid #BFBAA5;
+  display: flex;
+  align-items: center;
+  overflow: hidden; }
+  .animation__container {
+    width: 100%;
+    animation: ping-pong 1.25s cubic-bezier(0.88, 0, 0.1, 1) infinite alternate; }
+  .animation__ball {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 1.5vw;
+    background: #E5DFC6;
+    animation: ball-offset 1.25s cubic-bezier(0.88, 0, 0.1, 1) infinite alternate; }
+
+@keyframes ping-pong {
+  from {
+    transform: translateX(0); }
+  to {
+    transform: translateX(100%); } }
+@keyframes ball-offset {
+  from {
+    transform: translateX(0); }
+  to {
+    transform: translateX(-100%); } }
+
+/*# sourceMappingURL=style.css.map */
