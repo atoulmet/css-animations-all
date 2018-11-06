@@ -1,19 +1,27 @@
-$cd-bg-01: #FFF3D4;
-$cd-bg-02: #e8e0cc;
-$cd-btn: #69CBD8;
-$cd-border: #539199;
-$cd-btn-active: #E880D7;
-$cd-txt: #FFF3D4;
+$cd-bg: #12120E;
+$cd-accent: #E5DFC6;
+$cd-trans: #40567B;
+
+
+
 
 $border-rad: 105rem;
 $ball-size: 3vw;
 $frame-size: 20vw;
 
-$anim-dur: 1.25s;
-$cub-bez: cubic-bezier(.88, 0, .10, 1);
+$anim-dur: .4667s;
+$anim-step: .083s;
+$cub-bez: cubic-bezier(.65, .08, .81, .52);
+$cub-bez-accent: cubic-bezier(0.65, 0.38, 0.23, 1.00);
 
-@mixin anim($keys, $dur:$anim-dur) {
-    animation: $keys $dur $cub-bez infinite alternate;
+@mixin anim($keys, $delay) {
+    animation: $keys $anim-dur $cub-bez $delay forwards;
+}
+@mixin accent($keys) {
+    animation: $keys .25s $cub-bez-accent .48s forwards;
+}
+@mixin txt($keys) {
+    animation: $keys .6s $cub-bez-accent .25s forwards;
 }
 
 
@@ -31,68 +39,88 @@ html {
 
 body {
     box-sizing: border-box;
-    background: $cd-btn;
+    background: #fff;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
   }
 
 .container {
-    // background: lighten($cd-btn, 10);
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.animation {
-    // margin: 2rem;
-    height: $frame-size;
-    width: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    &__box {
-        padding: 50px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-}
-
-.btn {
-    padding: 1rem 3rem;
-    font-size: 2.5rem;
-    color: $cd-txt;
-    display: inline-block;
-    background: linear-gradient(to right top, #e880d7, #e578d3, #e16fcf, #de66ca, #da5dc6);
-    
-    
+.load {
+    // background: orange;
+    width: 75vw;
+    height: 17vw;
     position: relative;
-    border: 2px solid $cd-txt;
-    border-radius: $border-rad;
-    
-
-    cursor: pointer;
-    & span {
+    overflow: hidden;
+    &__txt {
+        color: $cd-accent;
         position: relative;
-        display: inline-block;
-        z-index: 1;
+        padding:.5vw 8vw;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill, minmax(33%, 1fr));
+        align-items: center;
+        font-size: 6rem;
+        transform: translateX(-100%);
+        @include txt(slide-in,);
     }
-    &::before {
-        content: "";
-        border-radius: $border-rad;
-        background: $cd-btn;
-        opacity: 1;
+    &__bg {
+        background: $cd-bg;
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        transition: opacity 400ms cubic-bezier(.56, 0, .31, 1);
-    }
-    &:hover::before {
-        opacity: 0;
+        transform: translateX(-100%);
+        @include anim(slide-in, $anim-step*4);
+        
+        &--accent {
+            background: $cd-accent;
+            right: 70vw;
+            @include accent(slide-in);
+        }
+        &--trans-a {
+            background: $cd-accent;
+            @include anim(slide-in, 0s);
+        }
+        &--trans-b {
+            background: $cd-trans;
+            @include anim(slide-in, $anim-step);
+        }
+        &--trans-c {
+            background: $cd-accent;
+            @include anim(slide-in, ($anim-step*2));
+        }
+        &--trans-d {
+            background: $cd-trans;
+            @include anim(slide-in, ($anim-step*3));
+        }
     }
 }
+
+.slide-a {
+    @include anim(slide-in, 0);
+}
+.slide-b {
+    @include anim(slide-in, 1s);
+}
+.slide-a {
+    @include anim(slide-in, 0);
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
