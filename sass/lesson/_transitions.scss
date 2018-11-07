@@ -4,10 +4,8 @@
     cursor: pointer;
     padding: 1.85rem 3rem;
     border-radius: 10rem;
-    // transition-property: transform;
-    // transition-duration: 350ms;
-    transition: transform 350ms;
+    // add a transition to animate the property you've added
     &:hover {
-        transform: scale(1.13);
+        // add a property to animate
     }
 }

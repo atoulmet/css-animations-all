@@ -31,8 +31,4 @@ body {
   cursor: pointer;
   padding: 1.85rem 3rem;
   border-radius: 10rem;
-  transition: transform 350ms;
-}
-.btn:hover {
-  transform: scale(1.13);
 }
