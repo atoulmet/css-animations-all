@@ -1,4 +1,6 @@
-$cd-bg: #12120E;
+$cd-box: rgb(231, 247, 246);
+$cd-txt: #6300a0;
+$cd-danger: #b20a37;
 $cd-accent: #E5DFC6;
 $cd-trans: #40567B;
 
@@ -17,13 +19,6 @@ $cub-bez-accent: cubic-bezier(0.65, 0.38, 0.23, 1.00);
 @mixin anim($keys, $delay) {
     animation: $keys $anim-dur $cub-bez $delay forwards;
 }
-@mixin accent($keys) {
-    animation: $keys .25s $cub-bez-accent .48s forwards;
-}
-@mixin txt($keys) {
-    animation: $keys .6s $cub-bez-accent .25s forwards;
-}
-
 
 *,
 *::after,
@@ -40,6 +35,7 @@ html {
 body {
     box-sizing: border-box;
     background: #fff;
+    color: $cd-txt;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
   }
@@ -51,76 +47,57 @@ body {
     justify-content: center;
 }
 
-.load {
-    // background: orange;
-    width: 75vw;
-    height: 17vw;
+.form {
+    width: 100vh;
+    height: 25vh;
     position: relative;
     overflow: hidden;
-    &__txt {
-        color: $cd-accent;
-        position: relative;
-        padding:.5vw 8vw;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(auto-fill, minmax(33%, 1fr));
-        align-items: center;
-        font-size: 6rem;
-        transform: translateX(-100%);
-        @include txt(slide-in,);
-    }
-    &__bg {
-        background: $cd-bg;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        transform: translateX(-100%);
-        @include anim(slide-in, $anim-step*4);
+    background: $cd-box;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__mssg {
+        margin-left: 2.5rem;
+        padding-top: .5rem;
+        overflow: hidden;
         
-        &--accent {
-            background: $cd-accent;
-            right: 70vw;
-            @include accent(slide-in);
+        & span {
+            display: inline-block;
+            transform: translateY(-150%);
+        } 
+    }
+    &__group {
+        width: 75%;
+        transform: translateY(-10%);
+        & label {
+            display: block;
+            font-size: 1.5rem;
+            margin-left: 2.5rem;
         }
-        &--trans-a {
-            background: $cd-accent;
-            @include anim(slide-in, 0s);
-        }
-        &--trans-b {
-            background: $cd-trans;
-            @include anim(slide-in, $anim-step);
-        }
-        &--trans-c {
-            background: $cd-accent;
-            @include anim(slide-in, ($anim-step*2));
-        }
-        &--trans-d {
-            background: $cd-trans;
-            @include anim(slide-in, ($anim-step*3));
+        & input {
+            width: 100%;
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid $cd-box;
+            border-radius: 100rem;
+            padding: .5rem 1.5rem;
+            outline: none;
+            color: $cd-txt;
+            &:active, &:focus {
+                border: 2px solid $cd-txt;
+            }
+            &:not(:focus):invalid {
+                color: white;
+                border: 2px solid $cd-danger;
+                background: $cd-danger;
+                & + div span {
+                    color: $cd-danger;
+                    transform: translateY(0%);
+                    transition: transform .6s cubic-bezier(.24, .28, .12, 1);
+                }
+            }
         }
     }
-}
 
-.slide-a {
-    @include anim(slide-in, 0);
 }
-.slide-b {
-    @include anim(slide-in, 1s);
-}
-.slide-a {
-    @include anim(slide-in, 0);
-}
-
-@keyframes slide-in {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0%);
-    }
-}
-
