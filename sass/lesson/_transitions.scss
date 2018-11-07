@@ -1,0 +1,13 @@
+.btn {
+    background: $cd-btn;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    border-radius: 10rem;
+    // transition-property: transform;
+    // transition-duration: 350ms;
+    transition: transform 350ms;
+    &:hover {
+        transform: scale(1.13);
+    }
+}
