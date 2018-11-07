@@ -23,12 +23,58 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column-reverse;
 }
 
 .btn {
-  background: #011c37;
+  background: #15DEA5;
   font-size: 3rem;
   cursor: pointer;
   padding: 1.85rem 3rem;
   border-radius: 10rem;
+  position: relative;
+}
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+.btn::before {
+  border-radius: 10rem;
+  content: "";
+  background: #011c37;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 400ms;
+}
+.btn:hover::before {
+  opacity: 0;
+}
+.btn:hover + .box > .box__translate {
+  transform: translateX(100%);
+}
+.btn:hover + .box > .box__translate > .box__ball {
+  transform: translateX(-100%);
+}
+
+.box {
+  width: 65vw;
+  height: 5vw;
+  background: #15DEA5;
+  margin-bottom: 2.5vw;
+  border-radius: 5vw;
+  overflow: hidden;
+}
+.box__translate {
+  transition: transform 700ms;
+}
+.box__ball {
+  background: #011c37;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 5vw;
+  transition: transform 700ms;
 }

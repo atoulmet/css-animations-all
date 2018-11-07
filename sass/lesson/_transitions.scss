@@ -1,12 +1,55 @@
 .btn {
-    background: $cd-btn;
+    background: $cd-hover;
     font-size: 3rem;
     cursor: pointer;
     padding: 1.85rem 3rem;
     border-radius: 10rem;
-    // add a transition to animate the property you've added that last
-    &:hover {
-        // add a property to animate
+    position: relative;
+
+    & span {
+        position: relative;
+        z-index: 1;
+    }
+    &::before {
+        border-radius: 10rem;
+        content: "";
+        background: $cd-inactive;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: opacity 400ms;
+    }
+    &:hover::before {
+        opacity: 0;
+    }
+    &:hover + .box  > .box__translate{
+        transform: translateX(100%);
+        & > .box__ball {
+            transform: translateX(-100%);
+        }
+
     }
 }
 
+
+.box {
+    width:65vw;
+    height: $ball-size;
+    background: $cd-hover;
+    margin-bottom: 2.5vw;
+    border-radius: 5vw;
+    overflow: hidden;
+    &__translate {
+        transition: transform $trans-dur;
+    }
+    &__ball {
+        background: $cd-inactive;
+        width: $ball-size;
+        height: $ball-size;
+        border-radius: $ball-size;
+        transition: transform $trans-dur;
+    }
+}
