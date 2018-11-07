@@ -22,10 +22,10 @@
         left: 0;
         transition: opacity 400ms;
     }
-    &:hover::before {
+    &:active::before {
         opacity: 0;
     }
-    &:hover + .box  > .box__translate{
+    &:active + .box  > .box__translate{
         transform: translateX(100%);
         & > .box__ball {
             transform: translateX(-100%);

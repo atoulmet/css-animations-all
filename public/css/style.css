@@ -50,13 +50,13 @@ body {
   left: 0;
   transition: opacity 400ms;
 }
-.btn:hover::before {
+.btn:active::before {
   opacity: 0;
 }
-.btn:hover + .box > .box__translate {
+.btn:active + .box > .box__translate {
   transform: translateX(100%);
 }
-.btn:hover + .box > .box__translate > .box__ball {
+.btn:active + .box > .box__translate > .box__ball {
   transform: translateX(-100%);
 }
 
