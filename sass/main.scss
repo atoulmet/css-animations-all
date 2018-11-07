@@ -64,7 +64,8 @@ body {
         
         & span {
             display: inline-block;
-            transform: translateY(-150%);
+            transform: translateY(-75%);
+            opacity: 0;
         } 
     }
     &__group {
@@ -91,13 +92,26 @@ body {
                 color: white;
                 border: 2px solid $cd-danger;
                 background: $cd-danger;
+                animation: headshake 100ms linear 3;
                 & + div span {
                     color: $cd-danger;
                     transform: translateY(0%);
-                    transition: transform .6s cubic-bezier(.24, .28, .12, 1);
+                    opacity: 1;
+                    transition: all 300ms cubic-bezier(.24, .28, .12, 1);
                 }
             }
         }
     }
+}
 
+@keyframes headshake {
+    25% {
+        transform: translateX(1%);
+    }
+    75% {
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
