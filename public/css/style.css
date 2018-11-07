@@ -12,8 +12,8 @@ html {
 
 body {
   box-sizing: border-box;
-  background: #fff;
-  color: #fff;
+  background: #12120E;
+  color: #12120E;
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
@@ -27,54 +27,17 @@ body {
 }
 
 .btn {
-  background: #15DEA5;
+  background: #E5DFC6;
   font-size: 3rem;
   cursor: pointer;
   padding: 1.85rem 3rem;
   border-radius: 10rem;
   position: relative;
 }
-.btn span {
-  position: relative;
-  z-index: 1;
-}
-.btn::before {
-  border-radius: 10rem;
-  content: "";
-  background: #011c37;
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transition: opacity 400ms;
-}
-.btn:active::before {
-  opacity: 0;
-}
-.btn:active + .box > .box__translate {
-  transform: translateX(100%);
-}
-.btn:active + .box > .box__translate > .box__ball {
-  transform: translateX(-100%);
-}
 
 .box {
-  width: 65vw;
-  height: 5vw;
-  background: #15DEA5;
+  height: 30vh;
+  width: 30vh;
+  background: #E5DFC6;
   margin-bottom: 2.5vw;
-  border-radius: 5vw;
-  overflow: hidden;
-}
-.box__translate {
-  transition: transform 700ms;
-}
-.box__ball {
-  background: #011c37;
-  width: 5vw;
-  height: 5vw;
-  border-radius: 5vw;
-  transition: transform 700ms;
 }
