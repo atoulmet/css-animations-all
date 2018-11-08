@@ -5,7 +5,6 @@
     padding: 1.85rem 3rem;
     border-radius: 10rem;
     position: relative;
-
     & span {
         position: relative;
         z-index: 1;
@@ -22,34 +21,21 @@
         left: 0;
         transition: opacity 400ms;
     }
-    &:active::before {
+    &:hover::before {
         opacity: 0;
     }
-    &:active + .box  > .box__translate{
-        transform: translateX(100%);
-        & > .box__ball {
-            transform: translateX(-100%);
-        }
-
+    &:active + .ball{
+        transform: scale(1);
     }
 }
 
 
-.box {
-    width:65vw;
+.ball {
+    width: $ball-size;
     height: $ball-size;
     background: $cd-hover;
-    margin-bottom: 2.5vw;
-    border-radius: 5vw;
-    overflow: hidden;
-    &__translate {
-        transition: transform $trans-dur;
-    }
-    &__ball {
-        background: $cd-inactive;
-        width: $ball-size;
-        height: $ball-size;
-        border-radius: $ball-size;
-        transition: transform $trans-dur;
-    }
+    margin-bottom: 1rem;
+    border-radius: $ball-size * 0.5;
+    transform: scale(.1);
+    transition: transform 4s;
 }

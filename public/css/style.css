@@ -50,31 +50,19 @@ body {
   left: 0;
   transition: opacity 400ms;
 }
-.btn:active::before {
+.btn:hover::before {
   opacity: 0;
 }
-.btn:active + .box > .box__translate {
-  transform: translateX(100%);
-}
-.btn:active + .box > .box__translate > .box__ball {
-  transform: translateX(-100%);
+.btn:active + .ball {
+  transform: scale(1);
 }
 
-.box {
-  width: 65vw;
-  height: 5vw;
+.ball {
+  width: 75vh;
+  height: 75vh;
   background: #15DEA5;
-  margin-bottom: 2.5vw;
-  border-radius: 5vw;
-  overflow: hidden;
-}
-.box__translate {
-  transition: transform 700ms;
-}
-.box__ball {
-  background: #011c37;
-  width: 5vw;
-  height: 5vw;
-  border-radius: 5vw;
-  transition: transform 700ms;
+  margin-bottom: 1rem;
+  border-radius: 37.5vh;
+  transform: scale(0.1);
+  transition: transform 4s;
 }
