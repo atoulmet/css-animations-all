@@ -12,7 +12,7 @@ html {
 
 body {
     box-sizing: border-box;
-    background: #fff;
+    background: $cd-primary;
     color: #fff;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -23,5 +23,4 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column-reverse;
 }

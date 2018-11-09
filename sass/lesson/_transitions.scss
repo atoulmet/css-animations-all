@@ -1,55 +1,126 @@
-.btn {
-    background: $cd-hover;
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 1.85rem 3rem;
-    border-radius: 10rem;
-    position: relative;
-
-    & span {
-        position: relative;
-        z-index: 1;
+.frame {
+    width:85vw;
+    height: $ball-size *3.2;
+    border: 1px solid $cd-accent;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    &__width {
+        width: 100%;
+        animation-name: pos-x;
+        animation-duration: 1.8883s;
+        // animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
+        animation-iteration-count: infinite;
+        // animation: ping-pong 2s alternate infinite;
     }
-    &::before {
-        border-radius: 10rem;
-        content: "";
-        background: $cd-inactive;
-        opacity: 1;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        transition: opacity 400ms;
-    }
-    &:active::before {
-        opacity: 0;
-    }
-    &:active + .box  > .box__translate{
-        transform: translateX(100%);
-        & > .box__ball {
-            transform: translateX(-100%);
-        }
-
+    &__box {
+        background: $cd-accent;
+        width: $ball-size;
+        height: $ball-size;
+        transform-origin: 0% 50%;
+        animation-name: box-pivot;
+        animation-duration: 1.8883s;
+        // animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
+        animation-iteration-count: infinite;
     }
 }
 
+@keyframes ping-pong {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
 
-.box {
-    width:65vw;
-    height: $ball-size;
-    background: $cd-hover;
-    margin-bottom: 2.5vw;
-    border-radius: 5vw;
-    overflow: hidden;
-    &__translate {
-        transition: transform $trans-dur;
+@keyframes box-pivot {
+    0% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(3.10, .64);
+        animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
     }
-    &__ball {
-        background: $cd-inactive;
-        width: $ball-size;
-        height: $ball-size;
-        border-radius: $ball-size;
-        transition: transform $trans-dur;
+    // 5% {
+    //     transform-origin: 100% 50%;
+    //     transform: translateX(-100%) scale(3.10, .64);
+    //     animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
+    // }
+    14% {
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) scale(3.10, .64);
+        animation-timing-function: cubic-bezier(.92, 0, .12, 1);
     }
+    27% {
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) scale(.4, 2.91);
+        animation-timing-function: cubic-bezier(.55, .18, .12, 1.0);
+    }
+    31% {
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) scale(.4, 2.91);
+        animation-timing-function: cubic-bezier(.65, .12, .30, .75);
+    }
+    42% {
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) scale(1, 1);
+        animation-timing-function: cubic-bezier(.87, 0, .74, .61);
+    }
+    50% {
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) scale(3.10, .64);
+        animation-timing-function: cubic-bezier(.19, .22, .22, 1.0);
+    }
+    // 56% {
+    //     transform-origin: 0% 50%;
+    //     transform: translateX(0%) scale(3.10, .64);
+    //     animation-timing-function: cubic-bezier(.19, .22, .22, 1.0);
+    // }
+    64% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(3.10, .64);
+        animation-timing-function: cubic-bezier(.92, 0, .12, 1.0);
+    }
+    77% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(.35, 2.91);
+        animation-timing-function: cubic-bezier(.55, .16, .12, 1.0);
+    }
+    81% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(.4, 2.91);
+        animation-timing-function: cubic-bezier(.65, .12, .30, .75);
+    }
+    91% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(1.0, 1.0);
+        animation-timing-function: cubic-bezier(.17, 0, .74, .56);
+    }
+    100% {
+        transform-origin: 0% 50%;
+        transform: translateX(0%) scale(3.10, .64);
+        animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
+    }
+}
+
+@keyframes pos-x {
+    0% {
+        transform: translateX(0%);
+        animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
+    }    
+    14% {
+        transform: translateX(100%);
+        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
+    }    
+    50% {
+        transform: translateX(100%);
+        animation-timing-function: cubic-bezier(0.17, 0.0, 0.8, 0.7);
+    }    
+    64% {
+        transform: translateX(0%);
+        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
+    }    
+    100% {
+        transform: translateX(0%);
+        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
+    }    
 }
