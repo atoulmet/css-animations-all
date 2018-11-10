@@ -1,31 +1,35 @@
-.btn {
-    border: 4px solid $cd-btn;
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 1.85rem 3rem;
-    border-radius: 10rem;
-    position: relative;
-    transition: transform 450ms, background-color 300ms 150ms;
-    overflow: hidden;
-    background-color: $cd-btn-start;
-    
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $cd-btn;
-        border-radius: 10rem;
-        z-index: -1;
-        transform: scale(0);
-        transition: transform 150ms;
+.mssg {
+    $self: &;
+    &__btn {
+        background-color: $cd-btn;
+        border: 4px solid $cd-btn;
+        cursor: pointer;
+        font-size: 3rem;
+        overflow: hidden;
+        padding: 1.85rem 3rem;
+        position: relative;
+        z-index: 1;
+        &:hover + #{$self}__item{
+            transform: translateY(0);
+            & div {
+                transform: translateY(0);
+            }   
+        }
     }
-
-    &:hover {
-        transform: scale(1.13);
-        background-color: $cd-btn-end;
+    &__item {
+        width: 100%;  
+        padding: 1rem 2.2rem;
+        font-size: 2.5rem;
+        background: $cd-txt;
+        color: $cd-btn;
+        transform: translateY(-100%);
+        z-index: -1;
+        transition: transform 350ms;
+        & div {
+            transform: translateY(-100%);
+            transition: transform 300ms 60ms;
+        }
     }
 }
+
 
