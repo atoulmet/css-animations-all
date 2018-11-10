@@ -1,6 +1,8 @@
-$cd-inactive: #011c37;
-$cd-hover: #15DEA5;
-$cd-accent: #E5DFC6;
-$cd-primary: #12120E;
-$ball-size: 5vw;
-$trans-dur: 1200ms;
+$cd-bg: #f2fffe;
+$cd-danger: #c42000;
+$cd-border: #fff2ef;
+
+$ball-size: 4vh;
+$trans-dur: 4400ms;
+$ball-curve: .04, .31, .07, 1;
+$bg-grad: linear-gradient(to bottom, rgba(196,32,0,1) 0%, rgba(227,227,34,1) 57%, rgba(75,232,143,1) 100%)
