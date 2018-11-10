@@ -1,17 +1,26 @@
 .frame {
+    $self: &;
     width:85vw;
-    height: $ball-size *3.2;
+    height: $ball-size *2;
     border: 1px solid $cd-accent;
     overflow: hidden;
     display: flex;
     align-items: center;
     &__width {
         width: 100%;
-        animation-name: pos-x;
-        animation-duration: 1.8883s;
-        // animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
+        animation-name: ping-pong;
+        animation-duration: $trans-dur;
         animation-iteration-count: infinite;
-        // animation: ping-pong 2s alternate infinite;
+        animation-direction: alternate;
+        &--easyease,  #{$self}__box{
+            animation-timing-function: ease-in-out;
+        }
+        &--linear,  #{$self}__box{
+            animation-timing-function: linear;
+        }
+        &--cubic,  #{$self}__box{
+            animation-timing-function: cubic-bezier(.69, .30, .13, 1);
+        }
     }
     &__box {
         background: $cd-accent;
@@ -19,9 +28,9 @@
         height: $ball-size;
         transform-origin: 0% 50%;
         animation-name: box-pivot;
-        animation-duration: 1.8883s;
-        // animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
+        animation-duration: $trans-dur;
         animation-iteration-count: infinite;
+        animation-direction: alternate;
     }
 }
 
@@ -36,91 +45,11 @@
 
 @keyframes box-pivot {
     0% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(3.10, .64);
-        animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
-    }
-    // 5% {
-    //     transform-origin: 100% 50%;
-    //     transform: translateX(-100%) scale(3.10, .64);
-    //     animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
-    // }
-    14% {
-        transform-origin: 100% 50%;
-        transform: translateX(-100%) scale(3.10, .64);
-        animation-timing-function: cubic-bezier(.92, 0, .12, 1);
-    }
-    27% {
-        transform-origin: 100% 50%;
-        transform: translateX(-100%) scale(.4, 2.91);
-        animation-timing-function: cubic-bezier(.55, .18, .12, 1.0);
-    }
-    31% {
-        transform-origin: 100% 50%;
-        transform: translateX(-100%) scale(.4, 2.91);
-        animation-timing-function: cubic-bezier(.65, .12, .30, .75);
-    }
-    42% {
-        transform-origin: 100% 50%;
-        transform: translateX(-100%) scale(1, 1);
-        animation-timing-function: cubic-bezier(.87, 0, .74, .61);
-    }
-    50% {
-        transform-origin: 100% 50%;
-        transform: translateX(-100%) scale(3.10, .64);
-        animation-timing-function: cubic-bezier(.19, .22, .22, 1.0);
-    }
-    // 56% {
-    //     transform-origin: 0% 50%;
-    //     transform: translateX(0%) scale(3.10, .64);
-    //     animation-timing-function: cubic-bezier(.19, .22, .22, 1.0);
-    // }
-    64% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(3.10, .64);
-        animation-timing-function: cubic-bezier(.92, 0, .12, 1.0);
-    }
-    77% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(.35, 2.91);
-        animation-timing-function: cubic-bezier(.55, .16, .12, 1.0);
-    }
-    81% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(.4, 2.91);
-        animation-timing-function: cubic-bezier(.65, .12, .30, .75);
-    }
-    91% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(1.0, 1.0);
-        animation-timing-function: cubic-bezier(.17, 0, .74, .56);
+        transform: translateX(0%);
+        
     }
     100% {
-        transform-origin: 0% 50%;
-        transform: translateX(0%) scale(3.10, .64);
-        animation-timing-function: cubic-bezier(.19, .22, .24, 1.0);
+        transform: translateX(-100%);
     }
 }
 
-@keyframes pos-x {
-    0% {
-        transform: translateX(0%);
-        animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
-    }    
-    14% {
-        transform: translateX(100%);
-        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
-    }    
-    50% {
-        transform: translateX(100%);
-        animation-timing-function: cubic-bezier(0.17, 0.0, 0.8, 0.7);
-    }    
-    64% {
-        transform: translateX(0%);
-        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
-    }    
-    100% {
-        transform: translateX(0%);
-        animation-timing-function: cubic-bezier(0.16, .30, 0.39, 1.0);
-    }    
-}

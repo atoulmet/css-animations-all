@@ -21,13 +21,18 @@ body {
 .container {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+h2:not(:first-child) {
+  margin-top: 2rem;
+}
+
 .frame {
   width: 85vw;
-  height: 16vw;
+  height: 8vw;
   border: 1px solid #E5DFC6;
   overflow: hidden;
   display: flex;
@@ -35,18 +40,29 @@ body {
 }
 .frame__width {
   width: 100%;
-  animation-name: pos-x;
-  animation-duration: 1.8883s;
+  animation-name: ping-pong;
+  animation-duration: 1000ms;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.frame__width--easyease, .frame__width .frame__box {
+  animation-timing-function: ease-in-out;
+}
+.frame__width--linear, .frame__width .frame__box {
+  animation-timing-function: linear;
+}
+.frame__width--cubic, .frame__width .frame__box {
+  animation-timing-function: cubic-bezier(0.69, 0.3, 0.13, 1);
 }
 .frame__box {
   background: #E5DFC6;
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
   transform-origin: 0% 50%;
   animation-name: box-pivot;
-  animation-duration: 1.8883s;
+  animation-duration: 1000ms;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes ping-pong {
@@ -59,80 +75,9 @@ body {
 }
 @keyframes box-pivot {
   0% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(3.1, 0.64);
-    animation-timing-function: cubic-bezier(0.19, 0.22, 0.24, 1);
-  }
-  14% {
-    transform-origin: 100% 50%;
-    transform: translateX(-100%) scale(3.1, 0.64);
-    animation-timing-function: cubic-bezier(0.92, 0, 0.12, 1);
-  }
-  27% {
-    transform-origin: 100% 50%;
-    transform: translateX(-100%) scale(0.4, 2.91);
-    animation-timing-function: cubic-bezier(0.55, 0.18, 0.12, 1);
-  }
-  31% {
-    transform-origin: 100% 50%;
-    transform: translateX(-100%) scale(0.4, 2.91);
-    animation-timing-function: cubic-bezier(0.65, 0.12, 0.3, 0.75);
-  }
-  42% {
-    transform-origin: 100% 50%;
-    transform: translateX(-100%) scale(1, 1);
-    animation-timing-function: cubic-bezier(0.87, 0, 0.74, 0.61);
-  }
-  50% {
-    transform-origin: 100% 50%;
-    transform: translateX(-100%) scale(3.1, 0.64);
-    animation-timing-function: cubic-bezier(0.19, 0.22, 0.22, 1);
-  }
-  64% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(3.1, 0.64);
-    animation-timing-function: cubic-bezier(0.92, 0, 0.12, 1);
-  }
-  77% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(0.35, 2.91);
-    animation-timing-function: cubic-bezier(0.55, 0.16, 0.12, 1);
-  }
-  81% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(0.4, 2.91);
-    animation-timing-function: cubic-bezier(0.65, 0.12, 0.3, 0.75);
-  }
-  91% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(1, 1);
-    animation-timing-function: cubic-bezier(0.17, 0, 0.74, 0.56);
+    transform: translateX(0%);
   }
   100% {
-    transform-origin: 0% 50%;
-    transform: translateX(0%) scale(3.1, 0.64);
-    animation-timing-function: cubic-bezier(0.19, 0.22, 0.24, 1);
-  }
-}
-@keyframes pos-x {
-  0% {
-    transform: translateX(0%);
-    animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.7);
-  }
-  14% {
-    transform: translateX(100%);
-    animation-timing-function: cubic-bezier(0.16, 0.3, 0.39, 1);
-  }
-  50% {
-    transform: translateX(100%);
-    animation-timing-function: cubic-bezier(0.17, 0, 0.8, 0.7);
-  }
-  64% {
-    transform: translateX(0%);
-    animation-timing-function: cubic-bezier(0.16, 0.3, 0.39, 1);
-  }
-  100% {
-    transform: translateX(0%);
-    animation-timing-function: cubic-bezier(0.16, 0.3, 0.39, 1);
+    transform: translateX(-100%);
   }
 }
