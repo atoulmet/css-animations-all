@@ -26,13 +26,30 @@ body {
 }
 
 .btn {
-  background: #011c37;
+  border: 4px solid #011c37;
   font-size: 3rem;
   cursor: pointer;
   padding: 1.85rem 3rem;
   border-radius: 10rem;
-  transition: transform 350ms;
+  position: relative;
+  transition: transform 450ms, background-color 300ms 150ms;
+  overflow: hidden;
+  background-color: rgba(1, 28, 55, 0);
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #011c37;
+  border-radius: 10rem;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 150ms;
 }
 .btn:hover {
   transform: scale(1.13);
+  background-color: #011c37;
 }
