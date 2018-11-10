@@ -3,15 +3,17 @@
 }
 
 .btn {
-    background: $cd-danger;
+    background: $btn-grad;
+    background-size: 400% 400%;
     padding: 2rem 3rem;
     font-size: 2rem;
     border-radius: 10rem;
     cursor: pointer;
     transform: scale(1);
-    transition: transform $trans-dur*.1 cubic-bezier($ball-curve);
+    background-position: 0% 50%; 
+    transition: background-position $trans-dur cubic-bezier($ball-curve);
     &:active {
-        transform: scale(1.12);
+        background-position: 100% 50%;
         + .strength {
             > .strength__trans{
                 transform: translateY(0);

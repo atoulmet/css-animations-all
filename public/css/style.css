@@ -31,16 +31,18 @@ h2:not(:first-child) {
 }
 
 .btn {
-  background: #c42000;
+  background: linear-gradient(-45deg, #c42000 0%, #e3e322 57%, #4be88f 100%);
+  background-size: 400% 400%;
   padding: 2rem 3rem;
   font-size: 2rem;
   border-radius: 10rem;
   cursor: pointer;
   transform: scale(1);
-  transition: transform 440ms cubic-bezier(0.04, 0.31, 0.07, 1);
+  background-position: 0% 50%;
+  transition: background-position 4400ms cubic-bezier(0.04, 0.31, 0.07, 1);
 }
 .btn:active {
-  transform: scale(1.12);
+  background-position: 100% 50%;
 }
 .btn:active + .strength > .strength__trans {
   transform: translateY(0);
