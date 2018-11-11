@@ -1,6 +1,7 @@
-$cd-box: rgb(231, 247, 246);
+$cd-box: #e7f7f6;
 $cd-txt: #6300a0;
 $cd-danger: #b20a37;
+$cd-valid: #20b20a;
 $cd-accent: #E5DFC6;
 $cd-trans: #40567B;
 
@@ -77,22 +78,26 @@ body {
             margin-left: 2.5rem;
         }
         & input {
-            width: 100%;
-            font-size: 2.5rem;
-            font-family: 'Montserrat', sans-serif;
+            background: white;
             border: 2px solid $cd-box;
             border-radius: 100rem;
-            padding: .5rem 1.5rem;
-            outline: none;
             color: $cd-txt;
-            &:active, &:focus {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            outline: none;
+            padding: .5rem 1.5rem;
+            width: 100%;
+            transition: background-color 500ms;
+            &:focus {
                 border: 2px solid $cd-txt;
+                background:white;
             }
+
             &:not(:focus):invalid {
                 color: white;
                 border: 2px solid $cd-danger;
                 background: $cd-danger;
-                animation: headshake 100ms linear 3;
+                // animation: headshake 100ms linear 3;
                 & + div span {
                     color: $cd-danger;
                     transform: translateY(0%);
@@ -100,6 +105,18 @@ body {
                     transition: all 300ms cubic-bezier(.24, .28, .12, 1);
                 }
             }
+            // &:not(:active):valid {
+            //     color: white;
+            //     border: 2px solid $cd-valid;
+            //     background: $cd-valid;
+            //     // animation: headshake 100ms linear 3;
+            //     & + div span {
+            //         color: $cd-danger;
+            //         transform: translateY(0%);
+            //         opacity: 1;
+            //         transition: all 300ms cubic-bezier(.24, .28, .12, 1);
+            //     }
+            // }
         }
     }
 }
