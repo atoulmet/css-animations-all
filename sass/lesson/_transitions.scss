@@ -1,41 +1,144 @@
-.btn {
-    background: $cd-hover;
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 1.85rem 3rem;
-    border-radius: 10rem;
+$trans: (
+    translateX: "translateX(150%)",
+    translateY: "translateY(-50%)",
+    translate: "translate(150%, -50%)",
+    translateZ: "perspective(150px) translateZ(60px)",
+    translate3d: "perspective(150px) translate3d(150%, -10%, 50px)",
+);
+
+
+$scale: (
+    scaleX: "scaleX(2)",
+    scaleY: "scaleY(.5)",
+    scale: "scale(2, .5)",
+);
+
+$rot: (
+    rotate: "rotate(45deg)",
+    rotateX: "rotateX(75deg)",
+    rotateY: "rotateY(75deg)",
+    rotateZ: "rotateZ(45deg)",
+    rotate3d: "rotate3d(-1,.5,-.75,-75deg)",
+);
+
+$skew: (
+    skewX: "skewX(35deg)",
+    skewY: "skewY(35deg)",
+    skew: "skew(35deg, 35deg)",
+);
+
+@mixin anim($key) {
+    animation: $key 1s alternate infinite cubic-bezier(.64,.02,.17,.99);
+}
+
+.cat {
+    border: 1px solid mediumspringgreen;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-around;
     position: relative;
-    & span {
-        position: relative;
-        z-index: 1;
-    }
-    &::before {
-        border-radius: 10rem;
-        content: "";
-        background: $cd-inactive;
-        opacity: 1;
+    
+    margin-bottom: 3rem;
+    &__label {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        transition: opacity 400ms;
-    }
-    &:hover::before {
-        opacity: 0;
-    }
-    &:active + .ball{
-        transform: scale(1);
+        top: 100%;
+        left: 10%;
+        font-size: 1.5rem
     }
 }
 
+.shape {
+    margin: 1rem;
+    >div[class*="shape__"] {
+        width: 2rem;
+        height: 10rem;
+        margin: .5rem auto;
+        background: pink;
+    }
+    &__box--scaleZ {
+        @include anim(scaleZ);
+    }
+    &__box--scale3d {
+        @include anim(scale3d);
+    }
+    @each $key, $val in $trans {
+        &__box--#{$key} {
+            @include anim(#{$key});
+        }
+    }
+    @each $key, $val in $scale {
+        &__box--#{$key} {
+            @include anim(#{$key});
+        }
+    }
+    @each $key, $val in $rot {
+        &__box--#{$key} {
+            @include anim(#{$key});
+        }
+    }
+    @each $key, $val in $skew {
+        &__box--#{$key} {
+            @include anim(#{$key});
+        }
+    }
+}
 
-.ball {
-    width: $ball-size;
-    height: $ball-size;
-    background: $cd-hover;
-    margin-bottom: 1rem;
-    border-radius: $ball-size * 0.5;
-    transform: scale(.1);
-    transition: transform 4s;
+@each $key, $val in $trans {
+    @keyframes #{$key} {
+        0% {
+            transform: #{$key}#{"(0)"};
+        }
+        100% {
+            transform: unquote($val);
+        }
+    }
+}
+
+@each $key, $val in $scale {
+    @keyframes #{$key} {
+        0% {
+            transform: #{$key}#{"(1)"};
+        }
+        100% {
+            transform: unquote($val);
+        }
+    }
+}
+@each $key, $val in $rot {
+    @keyframes #{$key} {
+        0% {
+            transform: #{$key}#{"(0)"};
+        }
+        100% {
+            transform: perspective(150px) unquote($val);
+        }
+    }
+}
+@each $key, $val in $skew {
+    @keyframes #{$key} {
+        0% {
+            transform: #{$key}#{"(0)"};
+        }
+        100% {
+            transform: unquote($val);
+        }
+    }
+}
+
+@keyframes scaleZ {
+    0% {
+        transform: scaleZ(1) translateZ(.1rem);
+    }
+    100% {
+        transform: perspective(150px) scaleZ(20) translateZ(.1rem);
+    }
+}
+
+@keyframes scale3d {
+    0% {
+        transform: scale3d(1, 1, 1) translateZ(.1rem);
+    }
+    100% {
+        transform: perspective(150px) scale3d(2, .5, 20) translateZ(.1rem);
+    }
 }

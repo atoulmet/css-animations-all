@@ -13,56 +13,240 @@ html {
 body {
   box-sizing: border-box;
   background: #fff;
-  color: #fff;
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
 .container {
+  margin: 5rem auto;
   height: 100%;
+  width: 75%;
+}
+
+h2 {
+  margin-left: 2rem;
+}
+
+.cat {
+  border: 1px solid mediumspringgreen;
+  border-radius: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-}
-
-.btn {
-  background: #15DEA5;
-  font-size: 3rem;
-  cursor: pointer;
-  padding: 1.85rem 3rem;
-  border-radius: 10rem;
+  justify-content: space-around;
   position: relative;
+  margin-bottom: 3rem;
 }
-.btn span {
-  position: relative;
-  z-index: 1;
-}
-.btn::before {
-  border-radius: 10rem;
-  content: "";
-  background: #011c37;
-  opacity: 1;
+.cat__label {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transition: opacity 400ms;
-}
-.btn:hover::before {
-  opacity: 0;
-}
-.btn:active + .ball {
-  transform: scale(1);
+  top: 100%;
+  left: 10%;
+  font-size: 1.5rem;
 }
 
-.ball {
-  width: 75vh;
-  height: 75vh;
-  background: #15DEA5;
-  margin-bottom: 1rem;
-  border-radius: 37.5vh;
-  transform: scale(0.1);
-  transition: transform 4s;
+.shape {
+  margin: 1rem;
+}
+.shape > div[class*="shape__"] {
+  width: 2rem;
+  height: 10rem;
+  margin: .5rem auto;
+  background: pink;
+}
+.shape__box--scaleZ {
+  animation: scaleZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--scale3d {
+  animation: scale3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--translateX {
+  animation: translateX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--translateY {
+  animation: translateY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--translate {
+  animation: translate 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--translateZ {
+  animation: translateZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--translate3d {
+  animation: translate3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--scaleX {
+  animation: scaleX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--scaleY {
+  animation: scaleY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--scale {
+  animation: scale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--rotate {
+  animation: rotate 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--rotateX {
+  animation: rotateX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--rotateY {
+  animation: rotateY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--rotateZ {
+  animation: rotateZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--rotate3d {
+  animation: rotate3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--skewX {
+  animation: skewX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--skewY {
+  animation: skewY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--skew {
+  animation: skew 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+
+@keyframes translateX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+@keyframes translateY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes translate {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(150%, -50%);
+  }
+}
+@keyframes translateZ {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: perspective(150px) translateZ(60px);
+  }
+}
+@keyframes translate3d {
+  0% {
+    transform: translate3d(0);
+  }
+  100% {
+    transform: perspective(150px) translate3d(150%, -10%, 50px);
+  }
+}
+@keyframes scaleX {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(2);
+  }
+}
+@keyframes scaleY {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(.5);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2, .5);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: perspective(150px) rotate(45deg);
+  }
+}
+@keyframes rotateX {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: perspective(150px) rotateX(75deg);
+  }
+}
+@keyframes rotateY {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: perspective(150px) rotateY(75deg);
+  }
+}
+@keyframes rotateZ {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: perspective(150px) rotateZ(45deg);
+  }
+}
+@keyframes rotate3d {
+  0% {
+    transform: rotate3d(0);
+  }
+  100% {
+    transform: perspective(150px) rotate3d(-1,.5,-.75,-75deg);
+  }
+}
+@keyframes skewX {
+  0% {
+    transform: skewX(0);
+  }
+  100% {
+    transform: skewX(35deg);
+  }
+}
+@keyframes skewY {
+  0% {
+    transform: skewY(0);
+  }
+  100% {
+    transform: skewY(35deg);
+  }
+}
+@keyframes skew {
+  0% {
+    transform: skew(0);
+  }
+  100% {
+    transform: skew(35deg, 35deg);
+  }
+}
+@keyframes scaleZ {
+  0% {
+    transform: scaleZ(1) translateZ(0.1rem);
+  }
+  100% {
+    transform: perspective(150px) scaleZ(20) translateZ(0.1rem);
+  }
+}
+@keyframes scale3d {
+  0% {
+    transform: scale3d(1, 1, 1) translateZ(0.1rem);
+  }
+  100% {
+    transform: perspective(150px) scale3d(2, 0.5, 20) translateZ(0.1rem);
+  }
 }

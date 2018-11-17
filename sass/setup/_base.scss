@@ -13,15 +13,22 @@ html {
 body {
     box-sizing: border-box;
     background: #fff;
-    color: #fff;
+    // color: #fff;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
   }
 
 .container {
+    margin: 5rem auto;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column-reverse;
+    width: 75%;
+    // display: flex;
+    // flex-dire
+    // align-items: center;
+    // justify-content: space-around;
+    // // flex-direction: column-reverse;
+}
+
+h2 {
+    margin-left: 2rem;
 }
