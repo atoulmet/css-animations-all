@@ -14,11 +14,10 @@ $scale: (
 );
 
 $rot: (
-    rotate: "rotate(45deg)",
-    rotateX: "rotateX(75deg)",
-    rotateY: "rotateY(75deg)",
-    rotateZ: "rotateZ(45deg)",
-    rotate3d: "rotate3d(-1,.5,-.75,-75deg)",
+    px150: "perspective(150px) rotateX(45deg)",
+    px75: "perspective(75px) rotateX(45deg)",
+    px300: "perspective(300px) rotateX(45deg)",
+
 );
 
 $skew: (
@@ -34,6 +33,7 @@ $skew: (
 .cat {
     border: 1px solid mediumspringgreen;
     border-radius: 2rem;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     position: relative;
@@ -55,90 +55,24 @@ $skew: (
         margin: .5rem auto;
         background: pink;
     }
-    &__box--scaleZ {
-        @include anim(scaleZ);
-    }
-    &__box--scale3d {
-        @include anim(scale3d);
-    }
-    @each $key, $val in $trans {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-    @each $key, $val in $scale {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
+    
     @each $key, $val in $rot {
         &__box--#{$key} {
             @include anim(#{$key});
         }
     }
-    @each $key, $val in $skew {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
+
 }
 
-@each $key, $val in $trans {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
-    }
-}
-
-@each $key, $val in $scale {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(1)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
-    }
-}
 @each $key, $val in $rot {
     @keyframes #{$key} {
         0% {
             transform: #{$key}#{"(0)"};
         }
         100% {
-            transform: perspective(150px) unquote($val);
-        }
-    }
-}
-@each $key, $val in $skew {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
             transform: unquote($val);
         }
     }
 }
 
-@keyframes scaleZ {
-    0% {
-        transform: scaleZ(1) translateZ(.1rem);
-    }
-    100% {
-        transform: perspective(150px) scaleZ(20) translateZ(.1rem);
-    }
-}
 
-@keyframes scale3d {
-    0% {
-        transform: scale3d(1, 1, 1) translateZ(.1rem);
-    }
-    100% {
-        transform: perspective(150px) scale3d(2, .5, 20) translateZ(.1rem);
-    }
-}
