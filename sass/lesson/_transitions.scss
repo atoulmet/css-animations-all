@@ -1,77 +1,48 @@
-$trans: (
-    translateX: "translateX(150%)",
-    translateY: "translateY(-50%)",
-    translate: "translate(150%, -50%)",
-    translateZ: "perspective(150px) translateZ(60px)",
-    translate3d: "perspective(150px) translate3d(150%, -10%, 50px)",
-);
-
-
-$scale: (
-    scaleX: "scaleX(2)",
-    scaleY: "scaleY(.5)",
-    scale: "scale(2, .5)",
-);
-
-$rot: (
-    px150: "perspective(150px) rotateX(45deg)",
-    px75: "perspective(75px) rotateX(45deg)",
-    px300: "perspective(300px) rotateX(45deg)",
-
-);
-
-$skew: (
-    skewX: "skewX(35deg)",
-    skewY: "skewY(35deg)",
-    skew: "skew(35deg, 35deg)",
-);
-
-@mixin anim($key) {
-    animation: $key 1s alternate infinite cubic-bezier(.64,.02,.17,.99);
-}
-
-.cat {
-    border: 1px solid mediumspringgreen;
-    border-radius: 2rem;
+.example {
     width: 100%;
+    height: 100px;
+
     display: flex;
-    justify-content: space-around;
+    // flex-direction: column;
+    background: green;
     position: relative;
-    margin-bottom: 3rem;
-    &__label {
+    &__anim-width {
+        width: 33%;
+        height: 100px;
         position: absolute;
-        top: 100%;
-        left: 10%;
-        font-size: 1.5rem
+        background: orange;
+        animation: anim-width 1s ease-in-out ;
+    }
+    &__anim-scale {
+        width: 33%;
+        height: 100px;
+        position: absolute;
+        background: orange;
+        animation: anim-scale 1s ease-in-out ;
+    }
+    &__child {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        border: 1px solid white;
+        animation: anim-width 1s ease-in-out ;
+        background-image: radial-gradient(circle, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     }
 }
 
-.shape {
-    margin: 1rem;
-    >div[class*="shape__"] {
-        width: 2rem;
-        height: 10rem;
-        margin: .5rem auto;
-        background: pink;
+@keyframes anim-width {
+    0% {
+        left: 0%;
     }
-    
-    @each $key, $val in $rot {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-
-}
-
-@each $key, $val in $rot {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
+    100% {
+        left: 33%;
     }
 }
-
-
+@keyframes anim-scale {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translate(33%);
+    }
+}

@@ -26,9 +26,11 @@ body {
     // flex-dire
     align-items: center;
     justify-content: center;
-    // // flex-direction: column-reverse;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 h2 {
     margin-left: 2rem;
+
 }
