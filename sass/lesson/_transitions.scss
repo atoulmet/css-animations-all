@@ -1,48 +1,67 @@
-.example {
+@mixin img-ratio {
     width: 100%;
-    height: 100px;
-
-    display: flex;
-    // flex-direction: column;
-    background: green;
+    display: block;
+    overflow: hidden;
     position: relative;
-    &__anim-width {
-        width: 33%;
-        height: 100px;
+    padding-top: 42.25%;
+    & img {
         position: absolute;
-        background: orange;
-        animation: anim-width 1s ease-in-out ;
-    }
-    &__anim-scale {
-        width: 33%;
-        height: 100px;
-        position: absolute;
-        background: orange;
-        animation: anim-scale 1s ease-in-out ;
-    }
-    &__child {
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        border: 1px solid white;
-        animation: anim-width 1s ease-in-out ;
-        background-image: radial-gradient(circle, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
     }
 }
 
-@keyframes anim-width {
-    0% {
-        left: 0%;
+.card {
+    width: 20vw;
+    height: 33vw;
+    &__contents {
+        width: 100%;
+        height: 100%;
+        background: $cd-bg;
     }
-    100% {
-        left: 33%;
+    &__image {
+        margin: 0;
+        @include img-ratio;
+    }
+    &__heading {
+        font-size: 2rem;
+        font-weight: 700;
+        padding: 1rem;
+        background: $cd-heading;
+        color: white;
+    }
+    &__body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }
-@keyframes anim-scale {
+
+.box{
+    background: pink;
+    margin-left: 1rem;
+    width: 25%;
+    height: 400px;
+    display: inline-block;
+    &--full {
+        transform: translateX(-100%);
+        animation: trans .5s ease-in-out forwards;
+    }
+    &--anim {
+        transform: translateX(-100%);
+        overflow: hidden;
+        animation: trans .5s ease-in-out forwards;
+    }
+}
+
+@keyframes trans {
     0% {
-        transform: translateX(0);
+        transform: translateX(-100%);
     }
     100% {
-        transform: translate(33%);
+        transform: translateX(0%);
     }
 }
