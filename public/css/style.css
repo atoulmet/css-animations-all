@@ -19,25 +19,76 @@ body {
 
 .container {
   height: 100%;
-  width: 85%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
   flex-wrap: wrap;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem;
 }
 
 h2 {
   margin-left: 2rem;
 }
 
+.header {
+  height: 8vh;
+  width: 100%;
+  background: #69CBD8;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.header__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  color: white;
+}
+.header__nav {
+  display: flex;
+  flex-grow: 2;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+.header__nav-link {
+  padding-left: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
 .card {
-  width: 20vw;
-  height: 33vw;
+  width: 37vh;
+  height: 75vh;
+  overflow: hidden;
+  position: relative;
+}
+.card:not(:last-child) {
+  margin-right: 2rem;
+}
+.card--anim.card {
+  width: 0vw;
+  margin-right: 0;
+  transition: all 700ms cubic-bezier(0.49, 0.18, 0.23, 1);
 }
 .card__contents {
-  width: 100%;
+  width: 37vh;
   height: 100%;
+  left: 0%;
   background: #FAE8F1;
+  position: absolute;
+  overflow: hidden;
+}
+.card__contents--anim {
+  transition: left 700ms cubic-bezier(0.49, 0.18, 0.23, 1);
+  left: -20vw;
 }
 .card__image {
   margin: 0;
@@ -61,11 +112,54 @@ h2 {
   background: #69CBD8;
   color: white;
 }
+.card__footer {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  background: #69CBD8;
+  color: white;
+}
 .card__body {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  overflow: hidden;
+}
+.card__block {
+  background: #fff;
+  border-radius: .5rem;
+  padding: .5rem;
+  color: #011c37;
+  box-shadow: 0.33rem 0.33rem 0.33rem rgba(1, 28, 54, 0.08);
+}
+.card__block:not(:first-child) {
+  margin-top: 1rem;
+}
+.card__btn-block {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: .5rem;
+  background: #69CBD8;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0.33rem 0.33rem 0.33rem rgba(1, 28, 54, 0.08);
+}
+.btn--dark {
+  background: #011c37;
+}
+.btn--reveal:hover + .grid > .card--anim.card {
+  width: 37vh;
+  margin-right: 2rem;
+}
+.btn--reveal:hover + .grid > .card .card__contents--anim {
+  left: 0;
 }
 
 .box {
@@ -83,13 +177,4 @@ h2 {
   transform: translateX(-100%);
   overflow: hidden;
   animation: trans .5s ease-in-out forwards;
-}
-
-@keyframes trans {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }

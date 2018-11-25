@@ -14,12 +14,30 @@
 }
 
 .card {
-    width: 20vw;
-    height: 33vw;
+    $self: &;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+    position: relative;
+    &:not(:last-child){
+        margin-right: 2rem;
+    }
+    &--anim#{$self} {
+        width: 0vw;
+        margin-right: 0;
+        transition: all 700ms cubic-bezier(.49,.18,.23,1);
+    }
     &__contents {
-        width: 100%;
+        width: $width;
         height: 100%;
+        left: 0%;
         background: $cd-bg;
+        position: absolute;
+        overflow: hidden;
+        &--anim {
+            transition: left 700ms cubic-bezier(.49,.18,.23,1);
+            left: -20vw;
+        }
     }
     &__image {
         margin: 0;
@@ -32,11 +50,60 @@
         background: $cd-heading;
         color: white;
     }
+    &__footer {
+        font-size: 2rem;
+        font-weight: 700;
+        padding: 1rem;
+        background: $cd-heading;
+        color: white;
+    }
     &__body {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        padding: 1rem;
+        overflow: hidden;
+    }
+    &__block {
+        background: $cd-section;
+        border-radius: .5rem;
+        padding: .5rem;
+        color: $cd-primary;
+        box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
+        &:not(:first-child) {
+            margin-top: 1rem;
+        }
+    }
+    &__btn-block {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+}
+
+.btn {
+    padding: 1rem;
+    border-radius: .5rem;
+    background: $cd-btn;
+    color: white;
+    cursor: pointer;
+    box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
+    &--dark {
+        background: $cd-primary;
+    }
+    &--reveal {
+        &:hover+.grid{
+            >.card--anim.card {
+                width: $width;
+                margin-right: 2rem;
+            }
+            >.card {
+                .card__contents--anim{
+                    left:0;
+                }
+            }
+        }
     }
 }
 
@@ -54,14 +121,5 @@
         transform: translateX(-100%);
         overflow: hidden;
         animation: trans .5s ease-in-out forwards;
-    }
-}
-
-@keyframes trans {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
     }
 }
