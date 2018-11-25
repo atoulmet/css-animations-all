@@ -14,29 +14,25 @@
 }
 
 .card {
-    $self: &;
     width: $width;
     height: $height;
     overflow: hidden;
-    position: relative;
+    border-radius: 1rem;
     &:not(:last-child){
-        margin-right: 2rem;
+        margin-right: $margin-right;
     }
-    &--anim#{$self} {
-        width: 0vw;
-        margin-right: 0;
-        transition: all 700ms cubic-bezier(.49,.18,.23,1);
+    &--anim {
+        transform: translateX(($width+$margin-right)*-.95);
+        transition: transform 700ms $easing;
     }
     &__contents {
         width: $width;
         height: 100%;
-        left: 0%;
         background: $cd-bg;
-        position: absolute;
         overflow: hidden;
         &--anim {
-            transition: left 700ms cubic-bezier(.49,.18,.23,1);
-            left: -20vw;
+            transform: translateX(($width+$margin-right)*-1);
+            transition: transform 700ms $easing;
         }
     }
     &__image {
@@ -70,7 +66,14 @@
         border-radius: .5rem;
         padding: .5rem;
         color: $cd-primary;
-        box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
+        overflow: hidden;
+        // box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
+        @for $i from 1 through 3 {
+            &--anim-#{$i} {
+                transform: translateX(-108%);
+                transition: transform 500ms $easing 50ms*$i;
+            }
+        }
         &:not(:first-child) {
             margin-top: 1rem;
         }
@@ -79,6 +82,9 @@
         display: flex;
         justify-content: space-around;
         margin-top: 1rem;
+    }
+    &__txt {
+        display: inline-block;
     }
 }
 
@@ -90,18 +96,25 @@
     cursor: pointer;
     box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
     &--dark {
-        background: $cd-primary;
+        background: $cd-btn-alt;
     }
     &--reveal {
         &:hover+.grid{
-            >.card--anim.card {
-                width: $width;
-                margin-right: 2rem;
-            }
+
             >.card {
-                .card__contents--anim{
-                    left:0;
+                &--anim {
+                    transform: translateX(0);
                 }
+                .card__contents--anim{
+                    transform: translateX(0);
+                }
+                .card__txt--anim{
+                    // transform: translateX(0);
+                }
+                .card__block--anim{
+                    transform: translateX(0);
+                }
+                
             }
         }
     }

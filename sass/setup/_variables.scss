@@ -1,13 +1,17 @@
 $cd-primary: #011c37;
 $cd-shadow: rgba(1, 28, 54, 0.08);
 $cd-secondary: #15DEA5;
-$cd-heading: #69CBD8;
-$cd-btn: #69CBD8;
+$cd-heading: #841c0a;
+$cd-body: #fff;
+$cd-btn: #d17b1f;
+$cd-btn-alt: #841c0a;
 $cd-btn-txt: #FAE8F1;
 $cd-bg: #FAE8F1;
 $cd-section: #fff;
 
 $dur: 1000ms;
 $shadow-size: .33rem;
-$width: 37vh;
-$height: 75vh;
+$width: 33vh;
+$height: 72vh;
+$margin-right: 4vh;
+$easing: cubic-bezier(.49,.18,.23,1);
