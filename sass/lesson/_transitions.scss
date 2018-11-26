@@ -1,5 +1,5 @@
 @mixin ball-trans {
-    transition: transform $trans-dur cubic-bezier($ball-curve);
+    transition: transform $trans-dur;
 }
 
 .btn {
@@ -11,13 +11,13 @@
     cursor: pointer;
     transform: scale(1);
     background-position: 0% 50%; 
-    transition: background-position $trans-dur cubic-bezier($ball-curve);
+    transition: background-position $trans-dur;
     &:active {
         background-position: 100% 50%;
-        + .strength {
-            > .strength__trans{
+        +.strength {
+            >.strength__trans{
                 transform: translateY(0);
-                > .strength__ball{
+                >.strength__ball{
                     transform: translateY(0);
                 }
             }
