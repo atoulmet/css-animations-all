@@ -1,5 +1,5 @@
 @mixin ball-trans {
-    transition: transform $trans-dur;
+    transition: transform $trans-dur cubic-bezier(0,.61,.08,1);
 }
 
 .btn {
