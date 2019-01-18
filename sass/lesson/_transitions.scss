@@ -32,42 +32,36 @@ $skew: (
 }
 
 .btn {
+    border: none;
+    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     background: #ff4081;
     color: white;
-    display: inline-block;
+    display: block;
     padding: 1rem;
     cursor: pointer;
+    margin-top: 3rem;
+    &:active + .box {
+        transform: translate(15vh, 0);
+    }
 }
 
 
 .box {
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    &__base{
-        background: green;
-        color: white;
-        width: 15vh;
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        &--tranxScale {
-            transform: translateX(200%) scale(2);
-            background-color: #15dea5;
-        }
-        &--scaleTranx {
-            transform: scale(2) translateX(200%);
-            background-color: pink;
-        }
-    }
-    
+    background: #15dea5;
+    color: white;
+    width: 15vh;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: transform 330ms ease-in-out;
 }
 
 .cat {

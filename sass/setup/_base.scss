@@ -22,11 +22,11 @@ body {
     margin: 5rem auto;
     height: 100%;
     width: 90%;
-    // display: flex;
+    display: flex;
     // flex-dire
-    // align-items: center;
-    // justify-content: space-around;
-    // // flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
 }
 
 h2 {
