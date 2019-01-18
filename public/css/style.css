@@ -20,11 +20,48 @@ body {
 .container {
   margin: 5rem auto;
   height: 100%;
-  width: 75%;
+  width: 90%;
 }
 
 h2 {
   margin-left: 2rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background: #ff4081;
+  color: white;
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.box {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.box__base {
+  background: green;
+  color: white;
+  width: 15vh;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.box__base--tranxScale {
+  transform: translateX(200%) scale(2);
+  background-color: #15dea5;
+}
+.box__base--scaleTranx {
+  transform: scale(2) translateX(200%);
+  background-color: pink;
 }
 
 .cat {

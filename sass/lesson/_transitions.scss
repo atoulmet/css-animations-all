@@ -31,6 +31,45 @@ $skew: (
     animation: $key 1s alternate infinite cubic-bezier(.64,.02,.17,.99);
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background: #ff4081;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+
+.box {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    &__base{
+        background: green;
+        color: white;
+        width: 15vh;
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        &--tranxScale {
+            transform: translateX(200%) scale(2);
+            background-color: #15dea5;
+        }
+        &--scaleTranx {
+            transform: scale(2) translateX(200%);
+            background-color: pink;
+        }
+    }
+    
+}
+
 .cat {
     border: 1px solid mediumspringgreen;
     border-radius: 2rem;
