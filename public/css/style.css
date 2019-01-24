@@ -29,6 +29,7 @@ h2 {
 
 .btn {
   display: flex;
+  width: 20vh;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -39,19 +40,16 @@ h2 {
   cursor: pointer;
 }
 .btn:active + .box > .box__base--tranxScale {
-  transform: translateX(200%) scale(2);
+  animation: tranxScale 660ms ease-in-out both;
 }
-.btn:active + .box > .box__base--scaleTranx {
-  transform: scale(2) translateX(200%);
+.btn:active + .box > .start {
+  animation: scale 330ms ease-in-out both 400ms;
+}
+.btn:active + .box > .start > .box__base--scaleTranx {
+  animation: tranx 330ms ease-in-out both;
 }
 
-.box {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-.box__base {
-  background: green;
+.start {
   color: white;
   width: 20vh;
   height: 20vh;
@@ -62,148 +60,49 @@ h2 {
   margin-bottom: 2rem;
   text-align: center;
 }
+
+.box {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.box__base {
+  color: white;
+  width: 20vh;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  text-align: center;
+}
 .box__base--tranxScale {
   background-color: #15dea5;
-  transition: transform 330ms ease-in-out;
 }
 .box__base--scaleTranx {
   background-color: #ff9cae;
-  transition: transform 330ms ease-in-out;
 }
 
-.cat {
-  border: 1px solid mediumspringgreen;
-  border-radius: 2rem;
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  margin-bottom: 3rem;
+@keyframes tranxScale {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  45% {
+    transform: translateX(0) scale(2);
+  }
+  55% {
+    transform: translateX(0) scale(2);
+  }
+  100% {
+    transform: translateX(200%) scale(2);
+  }
 }
-.cat__label {
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  font-size: 1.5rem;
-}
-
-.shape {
-  margin: 1rem;
-}
-.shape > div[class*="shape__"] {
-  width: 2rem;
-  height: 10rem;
-  margin: .5rem auto;
-  background: pink;
-}
-.shape__box--scaleZ {
-  animation: scaleZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--scale3d {
-  animation: scale3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--translateX {
-  animation: translateX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--translateY {
-  animation: translateY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--translate {
-  animation: translate 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--translateZ {
-  animation: translateZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--translate3d {
-  animation: translate3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--scaleX {
-  animation: scaleX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--scaleY {
-  animation: scaleY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--scale {
-  animation: scale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--rotate {
-  animation: rotate 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--rotateX {
-  animation: rotateX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--rotateY {
-  animation: rotateY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--rotateZ {
-  animation: rotateZ 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--rotate3d {
-  animation: rotate3d 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--skewX {
-  animation: skewX 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--skewY {
-  animation: skewY 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-.shape__box--skew {
-  animation: skew 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
-}
-
-@keyframes translateX {
+@keyframes tranx {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(150%);
-  }
-}
-@keyframes translateY {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-@keyframes translate {
-  0% {
-    transform: translate(0);
-  }
-  100% {
-    transform: translate(150%, -50%);
-  }
-}
-@keyframes translateZ {
-  0% {
-    transform: translateZ(0);
-  }
-  100% {
-    transform: perspective(150px) translateZ(60px);
-  }
-}
-@keyframes translate3d {
-  0% {
-    transform: translate3d(0);
-  }
-  100% {
-    transform: perspective(150px) translate3d(150%, -10%, 50px);
-  }
-}
-@keyframes scaleX {
-  0% {
-    transform: scaleX(1);
-  }
-  100% {
-    transform: scaleX(2);
-  }
-}
-@keyframes scaleY {
-  0% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(.5);
+    transform: translateX(200%);
   }
 }
 @keyframes scale {
@@ -211,86 +110,6 @@ h2 {
     transform: scale(1);
   }
   100% {
-    transform: scale(2, .5);
-  }
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: perspective(150px) rotate(45deg);
-  }
-}
-@keyframes rotateX {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: perspective(150px) rotateX(75deg);
-  }
-}
-@keyframes rotateY {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: perspective(150px) rotateY(75deg);
-  }
-}
-@keyframes rotateZ {
-  0% {
-    transform: rotateZ(0);
-  }
-  100% {
-    transform: perspective(150px) rotateZ(45deg);
-  }
-}
-@keyframes rotate3d {
-  0% {
-    transform: rotate3d(0);
-  }
-  100% {
-    transform: perspective(150px) rotate3d(-1,.5,-.75,-75deg);
-  }
-}
-@keyframes skewX {
-  0% {
-    transform: skewX(0);
-  }
-  100% {
-    transform: skewX(35deg);
-  }
-}
-@keyframes skewY {
-  0% {
-    transform: skewY(0);
-  }
-  100% {
-    transform: skewY(35deg);
-  }
-}
-@keyframes skew {
-  0% {
-    transform: skew(0);
-  }
-  100% {
-    transform: skew(35deg, 35deg);
-  }
-}
-@keyframes scaleZ {
-  0% {
-    transform: scaleZ(1) translateZ(0.1rem);
-  }
-  100% {
-    transform: perspective(150px) scaleZ(20) translateZ(0.1rem);
-  }
-}
-@keyframes scale3d {
-  0% {
-    transform: scale3d(1, 1, 1) translateZ(0.1rem);
-  }
-  100% {
-    transform: perspective(150px) scale3d(2, 0.5, 20) translateZ(0.1rem);
+    transform: scale(2);
   }
 }

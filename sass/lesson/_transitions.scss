@@ -33,6 +33,7 @@ $skew: (
 
 .btn {
     display: flex;
+    width: 20vh;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
@@ -43,12 +44,31 @@ $skew: (
     cursor: pointer;
     &:active + .box {
         & > .box__base--tranxScale {
-        transform: translateX(200%) scale(2);   
+        // transform: translateX(200%) scale(2); 
+        animation: tranxScale 660ms ease-in-out both;  
         }
-        & > .box__base--scaleTranx {
-        transform: scale(2) translateX(200%);   
+        & > .start {
+            animation: scale 330ms ease-in-out both 400ms;
+            > .box__base--scaleTranx {
+                // transform: scale(2) translateX(200%);   
+                animation: tranx 330ms ease-in-out both; 
+                }
         }
     }
+}
+
+.start {
+    // background: green;
+    color: white;
+    width: 20vh;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
 }
 
 
@@ -57,7 +77,7 @@ $skew: (
     display: flex;
     flex-direction: column;
     &__base{
-        background: green;
+        // background: green;
         color: white;
         width: 20vh;
         height: 20vh;
@@ -65,127 +85,48 @@ $skew: (
         justify-content: center;
         align-items: center;
         font-size: 1.25rem;
-        margin-bottom: 2rem;
+        // margin-bottom: 2rem;
         text-align: center;
         &--tranxScale {
             background-color: #15dea5;
-            transition: transform 330ms ease-in-out;
+            // transition: transform 330ms ease-in-out;
         }
         &--scaleTranx {
             background-color: darken(pink, 7);
-            transition: transform 330ms ease-in-out;
+            // transition: transform 330ms ease-in-out;
         }
     }
 }
 
-.cat {
-    border: 1px solid mediumspringgreen;
-    border-radius: 2rem;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    
-    margin-bottom: 3rem;
-    &__label {
-        position: absolute;
-        top: 100%;
-        left: 10%;
-        font-size: 1.5rem
-    }
-}
-
-.shape {
-    margin: 1rem;
-    >div[class*="shape__"] {
-        width: 2rem;
-        height: 10rem;
-        margin: .5rem auto;
-        background: pink;
-    }
-    &__box--scaleZ {
-        @include anim(scaleZ);
-    }
-    &__box--scale3d {
-        @include anim(scale3d);
-    }
-    @each $key, $val in $trans {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-    @each $key, $val in $scale {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-    @each $key, $val in $rot {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-    @each $key, $val in $skew {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-}
-
-@each $key, $val in $trans {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
-    }
-}
-
-@each $key, $val in $scale {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(1)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
-    }
-}
-@each $key, $val in $rot {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: perspective(150px) unquote($val);
-        }
-    }
-}
-@each $key, $val in $skew {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: unquote($val);
-        }
-    }
-}
-
-@keyframes scaleZ {
+@keyframes tranxScale {
     0% {
-        transform: scaleZ(1) translateZ(.1rem);
+        transform: translateX(0) scale(1);
+    }
+    45% {
+        transform: translateX(0) scale(2);
+    }
+    55% {
+        transform: translateX(0) scale(2);
     }
     100% {
-        transform: perspective(150px) scaleZ(20) translateZ(.1rem);
+        transform: translateX(200%) scale(2);
     }
 }
 
-@keyframes scale3d {
+@keyframes tranx {
     0% {
-        transform: scale3d(1, 1, 1) translateZ(.1rem);
+        transform: translateX(0);
     }
     100% {
-        transform: perspective(150px) scale3d(2, .5, 20) translateZ(.1rem);
+        transform: translateX(200%);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(2);
     }
 }
