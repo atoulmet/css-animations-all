@@ -41,6 +41,14 @@ $skew: (
     display: inline-block;
     padding: 1rem;
     cursor: pointer;
+    &:active + .box {
+        & > .box__base--tranxScale {
+        transform: translateX(200%) scale(2);   
+        }
+        & > .box__base--scaleTranx {
+        transform: scale(2) translateX(200%);   
+        }
+    }
 }
 
 
@@ -51,23 +59,23 @@ $skew: (
     &__base{
         background: green;
         color: white;
-        width: 15vh;
-        height: 15vh;
+        width: 20vh;
+        height: 20vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        font-size: 1.25rem;
         margin-bottom: 2rem;
+        text-align: center;
         &--tranxScale {
-            transform: translateX(200%) scale(2);
             background-color: #15dea5;
+            transition: transform 330ms ease-in-out;
         }
         &--scaleTranx {
-            transform: scale(2) translateX(200%);
-            background-color: pink;
+            background-color: darken(pink, 7);
+            transition: transform 330ms ease-in-out;
         }
     }
-    
 }
 
 .cat {
