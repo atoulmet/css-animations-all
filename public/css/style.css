@@ -45,32 +45,38 @@ h2 {
   cursor: pointer;
   margin-top: 3rem;
 }
-.btn:active + .box {
-  transform: scale(1);
+.btn:active + .boxes > .boxes--rotDegrees {
+  transform: rotate(0deg);
 }
-.btn:active + .box span {
-  transform: translateY(0);
+.btn:active + .boxes > .boxes--rotTurns {
+  transform: rotate(0turn);
 }
 
-.box {
+.boxes {
+  width: 33%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+.boxes__base {
   background: #15dea5;
-  color: white;
   width: 15vh;
   height: 15vh;
+  font-size: 2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  transform: scale(0.1);
-  transition: transform 330ms ease-in-out;
-  overflow: hidden;
+  color: white;
+  font-size: 1.2rem;
 }
-.box span {
-  transform: translateY(250%);
-  transition: transform 280ms ease-out 50ms;
-  display: block;
+.boxes--rotDegrees {
+  transform: rotate(-360deg);
+  transition: transform 500ms ease-in-out;
+}
+.boxes--rotTurns {
+  background: #ff8da1;
+  transform: rotate(-1turn);
+  transition: transform 500ms ease-in-out;
 }
 
 .cat {
