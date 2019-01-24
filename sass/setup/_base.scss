@@ -19,10 +19,12 @@ body {
   }
 
 .container {
-    margin: 5rem auto;
-    height: 100%;
+    margin: 1rem auto;
+    height: 95%;
     width: 75%;
-    // display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     // flex-dire
     // align-items: center;
     // justify-content: space-around;
