@@ -46,7 +46,7 @@ h2 {
   margin-top: 3rem;
 }
 .btn:active + .box {
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
 }
 .btn:active + .box span {
   transform: translateY(0);
@@ -63,9 +63,9 @@ h2 {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  transform: scale(0.1);
-  transition: transform 330ms ease-in-out;
   overflow: hidden;
+  transform: scale(0.1) rotate(-90deg);
+  transition: transform 330ms ease-in-out;
 }
 .box span {
   transform: translateY(250%);

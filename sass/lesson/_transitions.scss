@@ -45,7 +45,7 @@ $skew: (
     cursor: pointer;
     margin-top: 3rem;
     &:active + .box {
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
         span {
             transform: translateY(0);
         }
@@ -64,9 +64,9 @@ $skew: (
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    transform: scale(.1);
-    transition: transform 330ms ease-in-out;
     overflow: hidden;
+    transform: scale(.1) rotate(-90deg);
+    transition: transform 330ms ease-in-out;
     span {
         transform: translateY(250%);
         transition: transform 280ms ease-out 50ms;
