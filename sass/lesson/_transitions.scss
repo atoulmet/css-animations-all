@@ -31,7 +31,7 @@ $skew: (
 }
 
 .cat {
-    border: 1px solid mediumspringgreen;
+    // border: 1px solid mediumspringgreen;
     border-radius: 2rem;
     width: 100%;
     display: flex;
@@ -48,11 +48,12 @@ $skew: (
 
 .shape {
     margin: 1rem;
+    font-size: 1.25rem;
     >div[class*="shape__"] {
-        width: 2rem;
+        width: 10rem;
         height: 10rem;
         margin: .5rem auto;
-        background: pink;
+        background: #15dea5;
     }
     
     @each $key, $val in $rot {

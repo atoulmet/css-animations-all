@@ -31,7 +31,6 @@ h2 {
 }
 
 .cat {
-  border: 1px solid mediumspringgreen;
   border-radius: 2rem;
   width: 100%;
   display: flex;
@@ -48,12 +47,13 @@ h2 {
 
 .shape {
   margin: 1rem;
+  font-size: 1.25rem;
 }
 .shape > div[class*="shape__"] {
-  width: 2rem;
+  width: 10rem;
   height: 10rem;
   margin: .5rem auto;
-  background: pink;
+  background: #15dea5;
 }
 .shape__box--px150 {
   animation: px150 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
