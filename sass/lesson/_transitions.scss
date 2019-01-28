@@ -1,78 +1,33 @@
-$trans: (
-    translateX: "translateX(150%)",
-    translateY: "translateY(-50%)",
-    translate: "translate(150%, -50%)",
-    translateZ: "perspective(150px) translateZ(60px)",
-    translate3d: "perspective(150px) translate3d(150%, -10%, 50px)",
-);
+$mint: #15dea5;
+$navy: #022F40;
 
-
-$scale: (
-    scaleX: "scaleX(2)",
-    scaleY: "scaleY(.5)",
-    scale: "scale(2, .5)",
-);
-
-$rot: (
-    px150: "perspective(150px) rotateX(45deg)",
-    px75: "perspective(75px) rotateX(45deg)",
-    px300: "perspective(300px) rotateX(45deg)",
-
-);
-
-$skew: (
-    skewX: "skewX(35deg)",
-    skewY: "skewY(35deg)",
-    skew: "skew(35deg, 35deg)",
-);
-
-@mixin anim($key) {
-    animation: $key 1s alternate infinite cubic-bezier(.64,.02,.17,.99);
-}
-
-.cat {
-    // border: 1px solid mediumspringgreen;
-    border-radius: 2rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    margin-bottom: 3rem;
-    &__label {
-        position: absolute;
-        top: 100%;
-        left: 10%;
-        font-size: 1.5rem
-    }
-}
-
-.shape {
-    margin: 1rem;
-    font-size: 1.25rem;
-    >div[class*="shape__"] {
-        width: 10rem;
-        height: 10rem;
-        margin: .5rem auto;
-        background: #15dea5;
-    }
-    
-    @each $key, $val in $rot {
-        &__box--#{$key} {
-            @include anim(#{$key});
-        }
-    }
-
-}
-
-@each $key, $val in $rot {
-    @keyframes #{$key} {
-        0% {
-            transform: #{$key}#{"(0)"};
-        }
-        100% {
-            transform: unquote($val);
+.btn {
+    background: $mint;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    &:active {
+        & + .progress {
+            & > .progress__bar {
+                transform: scaleX(1);
+            }
         }
     }
 }
 
-
+.progress {
+    width: 50vw;
+    height: 2vw;
+    border: 2px solid $navy;
+    padding: .25rem;
+    margin-bottom: 2rem;
+    &__bar {
+        width: 100%;
+        height: 100%;
+        background: $mint;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 2000ms cubic-bezier(.32,0,.07,1);
+    }
+}
