@@ -32,7 +32,7 @@ h2 {
 
 .cat {
   border-radius: 2rem;
-  width: 100%;
+  width: 75%;
   display: flex;
   justify-content: space-around;
   position: relative;
@@ -48,6 +48,7 @@ h2 {
 .shape {
   margin: 1rem;
   font-size: 1.25rem;
+  line-height: 2rem;
 }
 .shape > div[class*="shape__"] {
   width: 10rem;
@@ -55,14 +56,25 @@ h2 {
   margin: .5rem auto;
   background: #15dea5;
 }
-.shape__box--px150 {
-  animation: px150 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+.shape__box--org-left {
+  transform-origin: left 50%;
+  animation: transScale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
 }
-.shape__box--px75 {
-  animation: px75 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+.shape__box--org-right {
+  transform-origin: right 50%;
+  animation: transScale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
 }
-.shape__box--px300 {
-  animation: px300 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+.shape__box--org-top {
+  transform-origin: center top;
+  animation: transScale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--org-bot {
+  transform-origin: center bottom;
+  animation: transScale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
+}
+.shape__box--org-ctr {
+  transform-origin: center center;
+  animation: transScale 1s alternate infinite cubic-bezier(0.64, 0.02, 0.17, 0.99);
 }
 
 @keyframes px150 {
@@ -87,5 +99,13 @@ h2 {
   }
   100% {
     transform: perspective(300px) rotateX(45deg);
+  }
+}
+@keyframes transScale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }

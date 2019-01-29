@@ -31,9 +31,8 @@ $skew: (
 }
 
 .cat {
-    // border: 1px solid mediumspringgreen;
     border-radius: 2rem;
-    width: 100%;
+    width: 75%;
     display: flex;
     justify-content: space-around;
     position: relative;
@@ -49,16 +48,33 @@ $skew: (
 .shape {
     margin: 1rem;
     font-size: 1.25rem;
+    line-height: 2rem;
     >div[class*="shape__"] {
         width: 10rem;
         height: 10rem;
         margin: .5rem auto;
         background: #15dea5;
     }
-    
-    @each $key, $val in $rot {
-        &__box--#{$key} {
-            @include anim(#{$key});
+    &__box {
+        &--org-left {
+            transform-origin: left 50%;
+            @include anim(transScale);
+        }
+        &--org-right {
+            transform-origin: right 50%;
+            @include anim(transScale);
+        }
+        &--org-top {
+            transform-origin: center top;
+            @include anim(transScale);
+        }
+        &--org-bot {
+            transform-origin: center bottom;
+            @include anim(transScale);
+        }
+        &--org-ctr {
+            transform-origin: center center;
+            @include anim(transScale);
         }
     }
 
@@ -72,6 +88,15 @@ $skew: (
         100% {
             transform: unquote($val);
         }
+    }
+}
+
+@keyframes transScale {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
