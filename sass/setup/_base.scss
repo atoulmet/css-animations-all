@@ -16,6 +16,7 @@ body {
     // color: #fff;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
+    font-style: italic;
   }
 
 .container {
@@ -26,7 +27,7 @@ body {
     // flex-dire
     align-items: center;
     justify-content: center;
-    flex-direction: column-reverse;
+    // flex-direction: column-reverse;
 }
 
 h2 {
