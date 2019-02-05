@@ -1,15 +1,47 @@
 
 
-$cd-btn: #15DEA5;
-$border-rad: 2rem;
+$cd-btn: #a4c8d0;
+$border-rad: 1.25rem;
+
+@mixin pseudo-elem {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.img {
+    margin-bottom: 1rem;
+    width: 33vw;
+    height: 33vw;
+    border-radius: $border-rad;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    img {
+        height: 100%;
+        z-index: 1;
+    }
+    &::before {
+        border-radius: $border-rad;
+        opacity: .75;
+        background: $cd-btn;
+        z-index: 10;
+        @include pseudo-elem;
+        transition: opacity 1000ms;
+    }
+}
 
 .btn {
     outline: none;
     cursor: pointer;
     border: none;
-    padding: 2.5rem 3rem;
+    padding: 1.25rem 2rem;
     border-radius: $border-rad;
-    font-size: 4rem;
+    font-size: 2.25rem;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
@@ -17,40 +49,21 @@ $border-rad: 2rem;
     background-color: $cd-btn;
     z-index: 1;
     &:hover {
-        // & .btn__bg {
-        //     opacity: 1;
-        // }
         &::after{
             opacity: 1;
         }
+        & + .img {
+            &::before {
+                opacity: 0;
+            }
+        }
     }
     &::after {
-        content: '';
         background: radial-gradient(circle, lighten($cd-btn, 5) 0%, darken($cd-btn, 10) 100%);
-        // background-color: darken($cd-btn, 5);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @include pseudo-elem;
         border-radius: $border-rad;
         z-index: -1;
         opacity: 0;
-        transition: opacity 250ms;
+        transition: opacity 350ms;
     }
-    // &__bg {
-        // background-color: pink;
-    //     background-color: darken($cd-btn, 5);
-    //     position: absolute;
-    //     top: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     left: 0;
-    //     border-radius: $border-rad;
-    //     z-index: -1;
-    //     opacity: 0;
-    //     transition: opacity 250ms;
-    // }
-
-
 }
