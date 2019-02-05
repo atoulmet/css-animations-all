@@ -29,13 +29,30 @@ body {
 .btn {
   outline: none;
   cursor: pointer;
+  border: none;
   padding: 2.5rem 3rem;
   border-radius: 2rem;
   font-size: 4rem;
   color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  position: relative;
   background-color: #15DEA5;
-  transition: background-color 250ms;
+  z-index: 1;
 }
-.btn:hover {
-  background-color: #13c794;
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: '';
+  background: radial-gradient(circle, #22eab1 0%, #11af82 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 2rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 250ms;
 }
