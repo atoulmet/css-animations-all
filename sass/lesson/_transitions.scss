@@ -17,7 +17,6 @@
     width: $width;
     height: $height;
     overflow: hidden;
-    border-radius: 1rem;
     &:not(:last-child){
         margin-right: $margin-right;
     }
@@ -63,11 +62,9 @@
     }
     &__block {
         background: $cd-section;
-        border-radius: .5rem;
         padding: .5rem;
         color: $cd-primary;
         overflow: hidden;
-        // box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
         @for $i from 1 through 3 {
             &--anim-#{$i} {
                 transform: translateX(-108%);
@@ -90,11 +87,9 @@
 
 .btn {
     padding: 1rem;
-    border-radius: .5rem;
     background: $cd-btn;
     color: white;
     cursor: pointer;
-    box-shadow: $shadow-size $shadow-size $shadow-size $cd-shadow;
     &--dark {
         background: $cd-btn-alt;
     }
@@ -117,22 +112,5 @@
                 
             }
         }
-    }
-}
-
-.box{
-    background: pink;
-    margin-left: 1rem;
-    width: 25%;
-    height: 400px;
-    display: inline-block;
-    &--full {
-        transform: translateX(-100%);
-        animation: trans .5s ease-in-out forwards;
-    }
-    &--anim {
-        transform: translateX(-100%);
-        overflow: hidden;
-        animation: trans .5s ease-in-out forwards;
     }
 }

@@ -41,7 +41,7 @@ h2 {
 .header {
   height: 8vh;
   width: 100%;
-  background: #841c0a;
+  background: #A20021;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -68,7 +68,6 @@ h2 {
   width: 33vh;
   height: 72vh;
   overflow: hidden;
-  border-radius: 1rem;
 }
 .card:not(:last-child) {
   margin-right: 4vh;
@@ -80,7 +79,7 @@ h2 {
 .card__contents {
   width: 33vh;
   height: 100%;
-  background: #FAE8F1;
+  background: #F2E1E8;
   overflow: hidden;
 }
 .card__contents--anim {
@@ -106,14 +105,14 @@ h2 {
   font-size: 2rem;
   font-weight: 700;
   padding: 1rem;
-  background: #841c0a;
+  background: #A20021;
   color: white;
 }
 .card__footer {
   font-size: 2rem;
   font-weight: 700;
   padding: 1rem;
-  background: #841c0a;
+  background: #A20021;
   color: white;
 }
 .card__body {
@@ -126,7 +125,6 @@ h2 {
 }
 .card__block {
   background: #fff;
-  border-radius: .5rem;
   padding: .5rem;
   color: #011c37;
   overflow: hidden;
@@ -157,14 +155,12 @@ h2 {
 
 .btn {
   padding: 1rem;
-  border-radius: .5rem;
-  background: #d17b1f;
+  background: #D8572A;
   color: white;
   cursor: pointer;
-  box-shadow: 0.33rem 0.33rem 0.33rem rgba(1, 28, 54, 0.08);
 }
 .btn--dark {
-  background: #841c0a;
+  background: #A20021;
 }
 .btn--reveal:hover + .grid > .card--anim {
   transform: translateX(0);
@@ -174,21 +170,4 @@ h2 {
 }
 .btn--reveal:hover + .grid > .card .card__block--anim {
   transform: translateX(0);
-}
-
-.box {
-  background: pink;
-  margin-left: 1rem;
-  width: 25%;
-  height: 400px;
-  display: inline-block;
-}
-.box--full {
-  transform: translateX(-100%);
-  animation: trans .5s ease-in-out forwards;
-}
-.box--anim {
-  transform: translateX(-100%);
-  overflow: hidden;
-  animation: trans .5s ease-in-out forwards;
 }
