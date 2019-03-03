@@ -10,7 +10,7 @@ $navy: #022F40;
     &:active {
         & + .progress {
             & > .progress__bar {
-                transform: scaleX(1);
+                animation: progress-bar 1000ms
             }
         }
     }
@@ -26,9 +26,34 @@ $navy: #022F40;
         width: 100%;
         height: 100%;
         background: $mint;
-        // transform-origin: left;
+        transform-origin: left;
         transform: scaleX(0);
+        opacity: 0;
         // transition: transform 1000ms;
         // transition: transform 1000ms cubic-bezier(.32,0,.07,1);
+    }
+}
+
+@keyframes progress-bar{
+    0% {
+        transform: scaleX(0);
+        opacity: .1;
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.40);
+    }
+    46% {
+        transform: scaleX(.81);
+
+    }
+    85%,100% {
+        opacity: 1;
+
+    }
+    100% {
+        transform: scaleX(1);
     }
 }

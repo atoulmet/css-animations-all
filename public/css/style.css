@@ -39,7 +39,7 @@ h2 {
   cursor: pointer;
 }
 .btn:active + .progress > .progress__bar {
-  transform: scaleX(1);
+  animation: progress-bar 1000ms;
 }
 
 .progress {
@@ -53,5 +53,29 @@ h2 {
   width: 100%;
   height: 100%;
   background: #15dea5;
+  transform-origin: left;
   transform: scaleX(0);
+  opacity: 0;
+}
+
+@keyframes progress-bar {
+  0% {
+    transform: scaleX(0);
+    opacity: .1;
+  }
+  17% {
+    transform: scaleX(0.18);
+  }
+  24% {
+    transform: scaleX(0.4);
+  }
+  46% {
+    transform: scaleX(0.81);
+  }
+  85%,100% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
