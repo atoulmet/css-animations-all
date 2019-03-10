@@ -31,8 +31,16 @@ body {
   cursor: pointer;
   padding: 1.85rem 3rem;
   border-radius: 10rem;
-  transition: transform 400ms;
 }
 .btn:hover {
-  transform: scale(1.13);
+  animation: grow 400ms;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.13);
+  }
 }

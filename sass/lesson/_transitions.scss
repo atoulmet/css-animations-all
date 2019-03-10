@@ -6,8 +6,18 @@
     border-radius: 10rem;
     // transition-property: transform;
     // transition-duration: 400ms;
-    transition: transform 400ms;
+    // transition: transform 400ms;
     &:hover {
+        // transform: scale(1.13);
+        animation: grow 400ms;
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+    }
+    100% {
         transform: scale(1.13);
     }
 }
