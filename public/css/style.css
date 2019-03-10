@@ -38,9 +38,6 @@ h2 {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.btn:active + .progress > .progress__bar {
-  animation: progress-bar 1000ms;
-}
 
 .progress {
   width: 50vw;
@@ -56,6 +53,32 @@ h2 {
   transform-origin: left;
   transform: scaleX(0);
   opacity: 0;
+  animation: progress-bar 1000ms 100ms;
+}
+
+.cat {
+  width: 50vw;
+  height: 30vw;
+  position: absolute;
+  overflow: hidden;
+  background-image: url("https://bit.ly/2XJJLKn");
+  background-size: cover;
+  background-position: -20%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: .1rem;
+  font-size: 4vw;
+  font-weight: 900;
+  color: white;
+  animation: kitty 0ms 1100ms both;
+}
+.cat > img {
+  width: 100%;
+  transform: translateY(0%);
+  z-index: -10;
 }
 
 @keyframes progress-bar {
@@ -68,14 +91,24 @@ h2 {
   }
   24% {
     transform: scaleX(0.4);
+    animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
   }
   46% {
     transform: scaleX(0.81);
+    animation-timing-function: cubic-bezier(0.25, 0.25, 1);
   }
   85%,100% {
     opacity: 1;
   }
   100% {
     transform: scaleX(1);
+  }
+}
+@keyframes kitty {
+  0% {
+    transform: translateX(-99999px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
