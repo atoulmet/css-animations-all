@@ -7,14 +7,14 @@ $navy: #022F40;
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-    &:active {
-        & + .progress {
-            & > .progress__bar {
-                
-            }
-        }
-    }
+    // &:active {
+    //     & + .progress {
+    //     }
+    // }
 }
+
+$prog-bar-dur: 1000ms;
+$prog-bar-delay: 1000ms;
 
 .progress {
     width: 50vw;
@@ -27,11 +27,8 @@ $navy: #022F40;
         height: 100%;
         background: $mint;
         transform-origin: left;
-        transform: scaleX(0);
-        opacity: 0;
-        animation: progress-bar 1000ms 100ms;
-        // transition: transform 1000ms;
-        // transition: transform 1000ms cubic-bezier(.32,0,.07,1);
+        transform: scaleX(0.5);
+        animation: progress-bar $prog-bar-dur $prog-bar-delay;
     }
 }
 
@@ -39,10 +36,7 @@ $navy: #022F40;
     width: 50vw;
     height: 30vw;
     position: absolute;
-    overflow: hidden;
-    // left: 25%;
-    // left: 22.5%;
-    
+    overflow: hidden;    
     background-image: url("https://bit.ly/2XJJLKn");
     background-size: cover;
     background-position: -20%;
@@ -55,13 +49,12 @@ $navy: #022F40;
     font-size: 4vw;
     font-weight: 900;
     color: white;
-    animation: kitty 0ms 1100ms both;
-    & > img {
-        width: 100%;
-        transform: translateY(-0%);
-        z-index: -10;
-    }
+    // animation-name: cat;
+    // animation-duration: 1000ms;
+    // animation-delay: 2s;
+    animation: cat 1000ms 1150ms;
 }
+
 
 @keyframes progress-bar{
     0% {
@@ -74,11 +67,11 @@ $navy: #022F40;
     }
     24% {
         transform: scaleX(.40);
-        animation-timing-function: cubic-bezier(.9,0,.1,1);
+        // animation-timing-function: cubic-bezier(.9,0,.1,1);
     }
     46% {
         transform: scaleX(.81);
-        animation-timing-function: cubic-bezier(.25,0.25,1);
+        // animation-timing-function: cubic-bezier(.25,0.25,1);
 
     }
     85%,100% {
@@ -90,18 +83,11 @@ $navy: #022F40;
     }
 }
 
-@keyframes kitty {
+@keyframes cat {
     0% {
-        // opacity: 0;
-        transform: translateX(-99999px);
-        // left: -99999px;
-        // display: none;
+        transform: translateX(-9999px);
     }
     100% {
         transform: translateX(0);
-        // left: 0;
-        // opacity: 1;        
-        // transform: translateX(0)
-        // display: block;
     }
 }
