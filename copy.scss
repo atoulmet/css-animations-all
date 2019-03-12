@@ -1,0 +1,15 @@
+.form {
+    &__group {
+        & input {
+            &:active, &:focus {
+                border: 2px solid $cd-txt;
+            }
+            &:not(:focus):invalid {
+                color: white;
+                border: 2px solid $cd-danger;
+                background: $cd-danger;
+                animation: headshake 100ms linear 2;
+            }
+        }
+    }
+}

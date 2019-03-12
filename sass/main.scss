@@ -1,24 +1,9 @@
 $cd-box: rgb(231, 247, 246);
 $cd-txt: #6300a0;
 $cd-danger: #b20a37;
-$cd-accent: #E5DFC6;
-$cd-trans: #40567B;
 
-
-
-
-$border-rad: 105rem;
-$ball-size: 3vw;
-$frame-size: 20vw;
-
-$anim-dur: .4667s;
-$anim-step: .083s;
-$cub-bez: cubic-bezier(.65, .08, .81, .52);
-$cub-bez-accent: cubic-bezier(0.65, 0.38, 0.23, 1.00);
-
-@mixin anim($keys, $delay) {
-    animation: $keys $anim-dur $cub-bez $delay forwards;
-}
+$shake-intensity: 1%;
+$shake-quantity: 2;
 
 *,
 *::after,
@@ -92,13 +77,7 @@ body {
                 color: white;
                 border: 2px solid $cd-danger;
                 background: $cd-danger;
-                animation: headshake 100ms linear 3;
-                & + div span {
-                    color: $cd-danger;
-                    transform: translateY(0%);
-                    opacity: 1;
-                    transition: all 300ms cubic-bezier(.24, .28, .12, 1);
-                }
+                animation: headshake 100ms cubic-bezier(.4,.1,.6,.9) $shake-quantity;
             }
         }
     }
@@ -106,12 +85,9 @@ body {
 
 @keyframes headshake {
     25% {
-        transform: translateX(1%);
+        transform: translateX($shake-intensity);
     }
     75% {
-        transform: translateX(-1%);
-    }
-    100% {
-        transform: translateX(0);
+        transform: translateX(-$shake-intensity);
     }
 }
