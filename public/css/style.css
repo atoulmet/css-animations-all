@@ -52,7 +52,7 @@ h2 {
   background: #15dea5;
   transform-origin: left;
   transform: scaleX(0.5);
-  animation: progress-bar 1000ms 1000ms;
+  animation: progress-bar 1000ms 150ms both cubic-bezier(0.9, 0, 0.1, 1);
 }
 
 .cat {
@@ -72,25 +72,23 @@ h2 {
   font-size: 4vw;
   font-weight: 900;
   color: white;
-  animation: cat 1000ms 1150ms;
+  animation: cat 0ms 1300ms both;
 }
 
 @keyframes progress-bar {
   0% {
     transform: scaleX(0);
-    opacity: .1;
   }
   17% {
     transform: scaleX(0.18);
   }
   24% {
     transform: scaleX(0.4);
+    animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
   }
   46% {
     transform: scaleX(0.81);
-  }
-  85%,100% {
-    opacity: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.25, 1);
   }
   100% {
     transform: scaleX(1);

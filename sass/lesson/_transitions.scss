@@ -14,7 +14,8 @@ $navy: #022F40;
 }
 
 $prog-bar-dur: 1000ms;
-$prog-bar-delay: 1000ms;
+$prog-bar-delay: 150ms;
+$cat-delay: $prog-bar-dur + $prog-bar-delay*2;
 
 .progress {
     width: 50vw;
@@ -28,7 +29,7 @@ $prog-bar-delay: 1000ms;
         background: $mint;
         transform-origin: left;
         transform: scaleX(0.5);
-        animation: progress-bar $prog-bar-dur $prog-bar-delay;
+        animation: progress-bar $prog-bar-dur $prog-bar-delay both cubic-bezier(.9,0,.1,1);
     }
 }
 
@@ -52,14 +53,13 @@ $prog-bar-delay: 1000ms;
     // animation-name: cat;
     // animation-duration: 1000ms;
     // animation-delay: 2s;
-    animation: cat 1000ms 1150ms;
+    animation: cat 0ms $cat-delay both;
 }
 
 
 @keyframes progress-bar{
     0% {
         transform: scaleX(0);
-        opacity: .1;
     }
     17% {
         transform: scaleX(.18);
@@ -67,15 +67,11 @@ $prog-bar-delay: 1000ms;
     }
     24% {
         transform: scaleX(.40);
-        // animation-timing-function: cubic-bezier(.9,0,.1,1);
+        animation-timing-function: cubic-bezier(.9,0,.1,1);
     }
     46% {
         transform: scaleX(.81);
-        // animation-timing-function: cubic-bezier(.25,0.25,1);
-
-    }
-    85%,100% {
-        opacity: 1;
+        animation-timing-function: cubic-bezier(.25,0.25,1);
 
     }
     100% {
