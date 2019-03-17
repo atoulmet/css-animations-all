@@ -28,66 +28,56 @@ body {
 .container {
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.form {
-    width: 100vh;
-    height: 25vh;
-    position: relative;
-    overflow: hidden;
-    background: $cd-box;
-    border-radius: 5vh;
+$size: 3vh;
+$anim-dur: 1000ms;
+$anim-delay: 200ms;
+
+.load {
+    width: $size * 10;
+    height: $size* 7.5;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    &__mssg {
-        margin-left: 2.5rem;
-        padding-top: .5rem;
-        overflow: hidden;
-        
-        & span {
-            display: inline-block;
-            transform: translateY(-75%);
-            opacity: 0;
-        } 
+    justify-content: space-evenly;
+    &:not(:last-child) {
+        margin-bottom: $size*-2;
     }
-    &__group {
-        width: 75%;
-        transform: translateY(-10%);
-        & label {
-            display: block;
-            font-size: 1.5rem;
-            margin-left: 2.5rem;
-        }
-        & input {
-            width: 100%;
-            font-size: 2.5rem;
-            font-family: 'Montserrat', sans-serif;
-            border: 2px solid $cd-box;
-            border-radius: 100rem;
-            padding: .5rem 1.5rem;
-            outline: none;
-            color: $cd-txt;
-            &:active, &:focus {
-                border: 2px solid $cd-txt;
+    &__bar {
+        background-color: #15DEA5;
+        height: 100%;
+        width: $size;
+        // border-radius: $size *.05;
+        // display: inline-block;
+        animation: bars $anim-dur ease-in-out both;
+        @for $i from 1 through 5 {
+            &--#{$i} {
+                animation-delay: $anim-delay * $i;
+                animation-fill-mode: both;
             }
-            &:not(:focus):invalid {
-                color: white;
-                border: 2px solid $cd-danger;
-                background: $cd-danger;
-                animation: headshake 100ms cubic-bezier(.4,.1,.6,.9) $shake-quantity;
+        }
+        @for $i from 1 through 5 {
+            &--#{$i + 5} {
+                animation-direction: alternate-reverse;
+                background: pink;
+                animation-delay: $anim-delay * $i + (random(100)*10ms);
+                
+                &:hover {
+                    animation-play-state: paused;
+                }
             }
         }
     }
 }
 
-@keyframes headshake {
-    25% {
-        transform: translateX($shake-intensity);
-    }
-    75% {
-        transform: translateX(-$shake-intensity);
+  
+@keyframes bars {
+    0% { 
+        transform: scaleY(0.5);
+    }  
+    100% { 
+        transform: scaleY(1.0);
     }
 }

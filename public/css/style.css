@@ -21,65 +21,92 @@ body {
 .container {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.form {
-  width: 100vh;
-  height: 25vh;
-  position: relative;
-  overflow: hidden;
-  background: #e7f7f6;
-  border-radius: 5vh;
+.load {
+  width: 30vh;
+  height: 22.5vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
 }
-.form__mssg {
-  margin-left: 2.5rem;
-  padding-top: .5rem;
-  overflow: hidden;
+.load:not(:last-child) {
+  margin-bottom: -6vh;
 }
-.form__mssg span {
-  display: inline-block;
-  transform: translateY(-75%);
-  opacity: 0;
+.load__bar {
+  background-color: #15DEA5;
+  height: 100%;
+  width: 3vh;
+  animation: bars 1000ms ease-in-out both;
 }
-.form__group {
-  width: 75%;
-  transform: translateY(-10%);
+.load__bar--1 {
+  animation-delay: 200ms;
+  animation-fill-mode: both;
 }
-.form__group label {
-  display: block;
-  font-size: 1.5rem;
-  margin-left: 2.5rem;
+.load__bar--2 {
+  animation-delay: 400ms;
+  animation-fill-mode: both;
 }
-.form__group input {
-  width: 100%;
-  font-size: 2.5rem;
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid #e7f7f6;
-  border-radius: 100rem;
-  padding: .5rem 1.5rem;
-  outline: none;
-  color: #6300a0;
+.load__bar--3 {
+  animation-delay: 600ms;
+  animation-fill-mode: both;
 }
-.form__group input:active, .form__group input:focus {
-  border: 2px solid #6300a0;
+.load__bar--4 {
+  animation-delay: 800ms;
+  animation-fill-mode: both;
 }
-.form__group input:not(:focus):invalid {
-  color: white;
-  border: 2px solid #b20a37;
-  background: #b20a37;
-  animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9) 2;
+.load__bar--5 {
+  animation-delay: 1000ms;
+  animation-fill-mode: both;
+}
+.load__bar--6 {
+  animation-direction: alternate-reverse;
+  background: pink;
+  animation-delay: 960ms;
+}
+.load__bar--6:hover {
+  animation-play-state: paused;
+}
+.load__bar--7 {
+  animation-direction: alternate-reverse;
+  background: pink;
+  animation-delay: 1250ms;
+}
+.load__bar--7:hover {
+  animation-play-state: paused;
+}
+.load__bar--8 {
+  animation-direction: alternate-reverse;
+  background: pink;
+  animation-delay: 690ms;
+}
+.load__bar--8:hover {
+  animation-play-state: paused;
+}
+.load__bar--9 {
+  animation-direction: alternate-reverse;
+  background: pink;
+  animation-delay: 1360ms;
+}
+.load__bar--9:hover {
+  animation-play-state: paused;
+}
+.load__bar--10 {
+  animation-direction: alternate-reverse;
+  background: pink;
+  animation-delay: 1650ms;
+}
+.load__bar--10:hover {
+  animation-play-state: paused;
 }
 
-@keyframes headshake {
-  25% {
-    transform: translateX(1%);
+@keyframes bars {
+  0% {
+    transform: scaleY(0.5);
   }
-  75% {
-    transform: translateX(-1%);
+  100% {
+    transform: scaleY(1);
   }
 }
