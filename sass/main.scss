@@ -37,32 +37,40 @@ $size: 3vh;
 $anim-dur: 1000ms;
 $anim-delay: 200ms;
 
+$cd-bars-inv: #0E397F;
+
+
 .load {
     width: $size * 10;
     height: $size* 7.5;
     display: flex;
     justify-content: space-evenly;
-    &:not(:last-child) {
-        margin-bottom: $size*-2;
-    }
+    // &:not(:last-child) {
+    //     margin-bottom: $size*-2;
+    // }
     &__bar {
         background-color: #15DEA5;
         height: 100%;
         width: $size;
         // border-radius: $size *.05;
         // display: inline-block;
-        animation: bars $anim-dur ease-in-out both;
+        animation: bars $anim-dur backwards infinite ease-in-out alternate;
         @for $i from 1 through 5 {
             &--#{$i} {
                 animation-delay: $anim-delay * $i;
-                animation-fill-mode: both;
+            }
+            &--#{$i}-inv {
+                animation-delay: $anim-delay * $i;
+                animation-direction: alternate-reverse;
+                background: $cd-bars-inv;
             }
         }
         @for $i from 1 through 5 {
             &--#{$i + 5} {
                 animation-direction: alternate-reverse;
                 background: pink;
-                animation-delay: $anim-delay * $i + (random(100)*10ms);
+                animation-delay: $anim-delay * $i;
+                // + (random(100)*10ms);
                 
                 &:hover {
                     animation-play-state: paused;
