@@ -26,6 +26,24 @@ body {
   justify-content: center;
 }
 
+.spin {
+  background-color: #15DEA5;
+  width: 30vh;
+  height: 30vh;
+  animation: spin 3s linear infinite paused;
+}
+.spin:hover {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .load {
   width: 30vh;
   height: 22.5vh;
