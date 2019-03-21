@@ -28,9 +28,9 @@ body {
 .container {
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 $size: 3vh;
@@ -41,9 +41,18 @@ $cd-bars-inv: #0E397F;
 
 .spin {
     background-color: #15DEA5;
-    width: 30vh;
-    height: 30vh;
-    animation: spin 3s linear infinite paused;
+    width: 15vh;
+    height: 15vh;
+    animation: spin 3s linear infinite;
+    &--rev {
+        animation-direction: reverse;
+    }
+    &--fast {
+        animation-duration: 1000ms;
+    }
+    &--slow {
+        animation-duration: 9000ms;
+    }
     &:hover {
         animation-play-state: running;
     }
