@@ -20,7 +20,7 @@ html {
 body {
     box-sizing: border-box;
     background: #fff;
-    color: $cd-txt;
+    font-size: 1.5rem;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
   }
@@ -31,6 +31,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    & span {
+        margin: 1rem;
+    }
 }
 
 $size: 3vh;
@@ -45,32 +48,32 @@ $cd-bars-inv: #0E397F;
     height: $size* 7.5;
     display: flex;
     justify-content: space-evenly;
-    // &:not(:last-child) {
-    //     margin-bottom: $size*-2;
-    // }
+    margin-bottom: 0;
+    
     &__bar {
         background-color: #15DEA5;
         height: 100%;
         width: $size;
-        // border-radius: $size *.05;
-        // display: inline-block;
         animation: bars $anim-dur backwards infinite ease-in-out alternate;
         @for $i from 1 through 5 {
             &--#{$i} {
                 animation-delay: $anim-delay * $i;
             }
             &--#{$i}-inv {
-                animation-delay: $anim-delay * $i;
+                animation-delay: $anim-delay * $i + random(100)*15ms;
                 animation-direction: alternate-reverse;
+                animation-fill-mode: forwards;
                 background: $cd-bars-inv;
+                &:hover {
+                    animation-play-state: paused;
+                }
             }
         }
         @for $i from 1 through 5 {
             &--#{$i + 5} {
                 animation-direction: alternate-reverse;
                 background: pink;
-                animation-delay: $anim-delay * $i;
-                // + (random(100)*10ms);
+                animation-delay: $anim-delay * $i + (random(100)*20ms);
                 
                 &:hover {
                     animation-play-state: paused;

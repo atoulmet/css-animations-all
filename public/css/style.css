@@ -13,7 +13,7 @@ html {
 body {
   box-sizing: border-box;
   background: #fff;
-  color: #6300a0;
+  font-size: 1.5rem;
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
@@ -25,12 +25,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+.container span {
+  margin: 1rem;
+}
 
 .load {
   width: 30vh;
   height: 22.5vh;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 0;
 }
 .load__bar {
   background-color: #15DEA5;
@@ -42,46 +46,66 @@ body {
   animation-delay: 200ms;
 }
 .load__bar--1-inv {
-  animation-delay: 200ms;
+  animation-delay: 410ms;
   animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
   background: #0E397F;
+}
+.load__bar--1-inv:hover {
+  animation-play-state: paused;
 }
 .load__bar--2 {
   animation-delay: 400ms;
 }
 .load__bar--2-inv {
-  animation-delay: 400ms;
+  animation-delay: 1345ms;
   animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
   background: #0E397F;
+}
+.load__bar--2-inv:hover {
+  animation-play-state: paused;
 }
 .load__bar--3 {
   animation-delay: 600ms;
 }
 .load__bar--3-inv {
-  animation-delay: 600ms;
+  animation-delay: 1605ms;
   animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
   background: #0E397F;
+}
+.load__bar--3-inv:hover {
+  animation-play-state: paused;
 }
 .load__bar--4 {
   animation-delay: 800ms;
 }
 .load__bar--4-inv {
-  animation-delay: 800ms;
+  animation-delay: 1220ms;
   animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
   background: #0E397F;
+}
+.load__bar--4-inv:hover {
+  animation-play-state: paused;
 }
 .load__bar--5 {
   animation-delay: 1000ms;
 }
 .load__bar--5-inv {
-  animation-delay: 1000ms;
+  animation-delay: 2470ms;
   animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
   background: #0E397F;
+}
+.load__bar--5-inv:hover {
+  animation-play-state: paused;
 }
 .load__bar--6 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 200ms;
+  animation-delay: 1380ms;
 }
 .load__bar--6:hover {
   animation-play-state: paused;
@@ -89,7 +113,7 @@ body {
 .load__bar--7 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 400ms;
+  animation-delay: 1260ms;
 }
 .load__bar--7:hover {
   animation-play-state: paused;
@@ -97,7 +121,7 @@ body {
 .load__bar--8 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 600ms;
+  animation-delay: 800ms;
 }
 .load__bar--8:hover {
   animation-play-state: paused;
@@ -105,7 +129,7 @@ body {
 .load__bar--9 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 800ms;
+  animation-delay: 2260ms;
 }
 .load__bar--9:hover {
   animation-play-state: paused;
@@ -113,7 +137,7 @@ body {
 .load__bar--10 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1000ms;
+  animation-delay: 1140ms;
 }
 .load__bar--10:hover {
   animation-play-state: paused;
