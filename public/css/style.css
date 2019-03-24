@@ -30,7 +30,7 @@ body {
   background-color: #15DEA5;
   width: 15vh;
   height: 15vh;
-  animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite paused;
 }
 .spin--rev {
   animation-direction: reverse;
