@@ -40,15 +40,14 @@ body {
   background-color: #15DEA5;
   height: 100%;
   width: 3vh;
-  animation: bars 1000ms backwards infinite ease-in-out alternate;
+  animation: bars 1000ms backwards infinite alternate ease-in-out;
 }
 .load__bar--1 {
   animation-delay: 200ms;
 }
 .load__bar--1-inv {
-  animation-delay: 410ms;
+  animation-delay: 200ms;
   animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
   background: #0E397F;
 }
 .load__bar--1-inv:hover {
@@ -58,9 +57,8 @@ body {
   animation-delay: 400ms;
 }
 .load__bar--2-inv {
-  animation-delay: 1345ms;
+  animation-delay: 400ms;
   animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
   background: #0E397F;
 }
 .load__bar--2-inv:hover {
@@ -70,9 +68,8 @@ body {
   animation-delay: 600ms;
 }
 .load__bar--3-inv {
-  animation-delay: 1605ms;
+  animation-delay: 600ms;
   animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
   background: #0E397F;
 }
 .load__bar--3-inv:hover {
@@ -82,9 +79,8 @@ body {
   animation-delay: 800ms;
 }
 .load__bar--4-inv {
-  animation-delay: 1220ms;
+  animation-delay: 800ms;
   animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
   background: #0E397F;
 }
 .load__bar--4-inv:hover {
@@ -94,9 +90,8 @@ body {
   animation-delay: 1000ms;
 }
 .load__bar--5-inv {
-  animation-delay: 2470ms;
+  animation-delay: 1000ms;
   animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
   background: #0E397F;
 }
 .load__bar--5-inv:hover {
@@ -105,7 +100,7 @@ body {
 .load__bar--6 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1380ms;
+  animation-delay: 1800ms;
 }
 .load__bar--6:hover {
   animation-play-state: paused;
@@ -113,7 +108,7 @@ body {
 .load__bar--7 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1260ms;
+  animation-delay: 640ms;
 }
 .load__bar--7:hover {
   animation-play-state: paused;
@@ -121,7 +116,7 @@ body {
 .load__bar--8 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 800ms;
+  animation-delay: 1680ms;
 }
 .load__bar--8:hover {
   animation-play-state: paused;
@@ -129,7 +124,7 @@ body {
 .load__bar--9 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 2260ms;
+  animation-delay: 2280ms;
 }
 .load__bar--9:hover {
   animation-play-state: paused;
@@ -137,7 +132,7 @@ body {
 .load__bar--10 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1140ms;
+  animation-delay: 2800ms;
 }
 .load__bar--10:hover {
   animation-play-state: paused;

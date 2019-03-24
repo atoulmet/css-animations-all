@@ -54,15 +54,16 @@ $cd-bars-inv: #0E397F;
         background-color: #15DEA5;
         height: 100%;
         width: $size;
-        animation: bars $anim-dur backwards infinite ease-in-out alternate;
+        animation: bars $anim-dur backwards infinite alternate ease-in-out;
         @for $i from 1 through 5 {
             &--#{$i} {
                 animation-delay: $anim-delay * $i;
             }
             &--#{$i}-inv {
-                animation-delay: $anim-delay * $i + random(100)*15ms;
+                animation-delay: $anim-delay * $i;
+                //  + random(100)*15ms;
                 animation-direction: alternate-reverse;
-                animation-fill-mode: forwards;
+                // animation-fill-mode: forwards;
                 background: $cd-bars-inv;
                 &:hover {
                     animation-play-state: paused;
