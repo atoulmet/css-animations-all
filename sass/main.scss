@@ -60,8 +60,7 @@ $cd-bars-inv: #0E397F;
                 animation-delay: $anim-delay * $i;
             }
             &--#{$i}-inv {
-                animation-delay: $anim-delay * $i;
-                //  + random(100)*15ms;
+                animation-delay: $anim-delay * $i + random(100)*15ms;
                 animation-direction: alternate-reverse;
                 // animation-fill-mode: forwards;
                 background: $cd-bars-inv;

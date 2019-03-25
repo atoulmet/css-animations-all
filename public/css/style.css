@@ -46,7 +46,7 @@ body {
   animation-delay: 200ms;
 }
 .load__bar--1-inv {
-  animation-delay: 200ms;
+  animation-delay: 620ms;
   animation-direction: alternate-reverse;
   background: #0E397F;
 }
@@ -57,7 +57,7 @@ body {
   animation-delay: 400ms;
 }
 .load__bar--2-inv {
-  animation-delay: 400ms;
+  animation-delay: 445ms;
   animation-direction: alternate-reverse;
   background: #0E397F;
 }
@@ -68,7 +68,7 @@ body {
   animation-delay: 600ms;
 }
 .load__bar--3-inv {
-  animation-delay: 600ms;
+  animation-delay: 735ms;
   animation-direction: alternate-reverse;
   background: #0E397F;
 }
@@ -79,7 +79,7 @@ body {
   animation-delay: 800ms;
 }
 .load__bar--4-inv {
-  animation-delay: 800ms;
+  animation-delay: 2195ms;
   animation-direction: alternate-reverse;
   background: #0E397F;
 }
@@ -90,7 +90,7 @@ body {
   animation-delay: 1000ms;
 }
 .load__bar--5-inv {
-  animation-delay: 1000ms;
+  animation-delay: 2230ms;
   animation-direction: alternate-reverse;
   background: #0E397F;
 }
@@ -100,7 +100,7 @@ body {
 .load__bar--6 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1800ms;
+  animation-delay: 800ms;
 }
 .load__bar--6:hover {
   animation-play-state: paused;
@@ -108,7 +108,7 @@ body {
 .load__bar--7 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 640ms;
+  animation-delay: 540ms;
 }
 .load__bar--7:hover {
   animation-play-state: paused;
@@ -116,7 +116,7 @@ body {
 .load__bar--8 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 1680ms;
+  animation-delay: 700ms;
 }
 .load__bar--8:hover {
   animation-play-state: paused;
@@ -124,7 +124,7 @@ body {
 .load__bar--9 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 2280ms;
+  animation-delay: 1000ms;
 }
 .load__bar--9:hover {
   animation-play-state: paused;
@@ -132,7 +132,7 @@ body {
 .load__bar--10 {
   animation-direction: alternate-reverse;
   background: pink;
-  animation-delay: 2800ms;
+  animation-delay: 2780ms;
 }
 .load__bar--10:hover {
   animation-play-state: paused;
